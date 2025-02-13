@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3" xmlns:simu="http://www.esterel-technologies.com/ns/scade/pragmas/simulator/1">
+	<declarations>
+		<Package name="CC">
+			<declarations>
+				<Open>
+					<package>
+						<PackageRef name="pwlinear"/>
+					</package>
+					<pragmas>
+						<ed:Open oid="!ed/10e87/79DD/245C/627be1ab3a16"/>
+					</pragmas>
+				</Open>
+				<Open>
+					<package>
+						<PackageRef name="linear"/>
+					</package>
+					<pragmas>
+						<ed:Open oid="!ed/10e88/79DD/245C/627be1ab17d4"/>
+					</pragmas>
+				</Open>
+				<Operator name="CruiseRegulation" href="CruiseRegulation.xscade"/>
+				<Operator name="Controller" href="Controller.xscade"/>
+				<Operator name="CruiseSpeedMgt" href="CruiseSpeedMgt.xscade"/>
+				<Operator name="RegulationMngt" href="RegulationMngt.xscade"/>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/401B/4AFD/A70/46A07F51/6F3B" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<diagrams>
+						<TreeDiagram landscape="true" format="A4 (210 297)" oid="!ed/401C/4AFD/A70/46A07F51/E6F" blockKind="constants"/>
+						<TreeDiagram landscape="true" format="A4 (210 297)" oid="!ed/401D/4AFD/A70/46A07F51/546E" blockKind="types"/>
+						<TreeDiagram landscape="true" format="A4 (210 297)" oid="!ed/401E/4AFD/A70/46A07F51/6D8A" blockKind="sensors"/>
+					</diagrams>
+					<references>
+						<PackageRef path="pwlinear" refOid="!ed/109/5FBD/93DC/627bdfdd3383"/>
+						<PackageRef path="linear" refOid="!ed/ee/5FBD/93DC/627bdfc377e"/>
+					</references>
+				</ed:Package>
+			</pragmas>
+		</Package>
+		<Open>
+			<package>
+				<PackageRef name="Defs"/>
+			</package>
+			<pragmas>
+				<ed:Open oid="!ed/a16d/29FC/3480/5821c47223e8" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<references>
+						<PackageRef path="Defs" refOid="!ed/9ea2/29FC/3480/5821bdaa78ce"/>
+					</references>
+				</ed:Open>
+			</pragmas>
+		</Open>
+	</declarations>
+</File>

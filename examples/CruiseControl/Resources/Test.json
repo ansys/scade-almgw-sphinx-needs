@@ -1,0 +1,72 @@
+[
+	{
+		"class": "TestApplication",
+		"isllr": false,
+		"structure": [
+			{
+				"flags": [ "sort" ],
+				"content": [
+					{ "role": "procedure", "kind": "" }
+				]
+			}
+		]
+	},
+	{
+		"class": "AbstractContainer",
+		"structure": [
+			{
+				"content": [
+					{ "role": "testElement{Folder}", "kind": "folder" },
+					{ "role": "testElement{Record}", "kind": "record" }
+				]
+			}
+		]
+	},
+	{
+		"class": "Procedure",
+		"folder": "Procedure",
+		"parent":  "AbstractContainer",
+		"isllr": false
+	},
+	{
+		"class": "Folder",
+		"isllr": false,
+		"folder": "Folder",
+		"parent":  "AbstractContainer",
+		"structure": [
+			{
+				"flags": [ "sort" ],
+				"content": [
+					{ "role": "testElement{Folder}", "kind": "folder" },
+					{ "role": "testElement{Record}", "kind": "record" }
+				]
+			}
+		]
+	},
+	{
+		"class": "Partial Record: activate it to trace regular scenarios, provided they are unique",
+		"isllr": false,
+		"folder": "Record",
+		"structure": [
+			{
+				"content": [
+					{ "role": "scenario", "kind": "" }
+				]
+			}
+		]
+	},
+	{
+		"class": "Full Record: activate it to trace all the scenarios, provided they are unique",
+		"isllr": false,
+		"folder": "Record",
+		"structure": [
+			{
+				"content": [
+					{ "role": "init", "kind": "scenario" },
+					{ "role": "preamble", "kind": "scenario" },
+					{ "role": "scenario", "kind": "" }
+				]
+			}
+		]
+	}
+]

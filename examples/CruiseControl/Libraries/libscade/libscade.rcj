@@ -1,0 +1,20 @@
+{
+    "justifications": [
+        {
+            "rule": "SDR-22",
+            "object_oid": "!ed/ee/5FBD/93DC/627bdfc377e",
+            "object_path": "linear::",
+            "violation": "linear: The name shall be composed of a sequence of words",
+            "author": "Design Team",
+            "text": "The name shall be the name of the package linear from $(SCADE)/libraries/SC65/liblinear/liblinear.etp"
+        },
+        {
+            "rule": "SDR-22",
+            "object_oid": "!ed/109/5FBD/93DC/627bdfdd3383",
+            "object_path": "pwlinear::",
+            "violation": "pwlinear: The name shall be composed of a sequence of words",
+            "author": "Design Team",
+            "text": "The name shall be the name of the package pwlinear from $(SCADE)/libraries/SC65/libpwlinear/libpwlinear.etp"
+        }
+    ]
+}

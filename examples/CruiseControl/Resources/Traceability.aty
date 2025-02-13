@@ -1,0 +1,50 @@
+-- --------------------------------------------------------------------------
+-- notes types
+-- --------------------------------------------------------------------------
+
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+
+BEGIN
+
+DesignElement ::=
+    SEQUENCE OF {
+	SEQUENCE {
+	    annot_object OID,
+	    name STRING,
+	    information {
+		Nature ENUM {
+		    NT_ENUM_VALUES {"Low Level Requirement", "Architecture", "Derived Low Level Requirement"},
+		    NT_DEFAULT_VALUE "Low Level Requirement",
+		    NT_FIELD_WIDTH  20,
+		    LLR_PROP "Nature"},
+		Description TEXT {
+		    NT_FIELD_HEIGHT 20,
+		    NT_FIELD_WIDTH  60 }
+} } }
+
+END
+
+-- --------------------------------------------------------------------------
+-- annotation rules
+-- --------------------------------------------------------------------------
+
+Annotation-Rules { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+
+    state ::= {
+	{DesignElement T 1 1}
+    }
+
+    transition ::= {
+	{DesignElement T 1 1}
+    }
+
+    text_diagram ::= {
+	{DesignElement T 1 1}
+    }
+
+    equation_set ::= {
+	{DesignElement T 1 1}
+    }
+
+END

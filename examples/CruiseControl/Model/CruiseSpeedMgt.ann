@@ -1,0 +1,68 @@
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    DesignElement ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Nature ENUM
+            {
+            	 NT_ENUM_VALUES {"Low Level Requirement", "Architecture", "Derived Low Level Requirement"},
+            	 NT_DEFAULT_VALUE "Low Level Requirement" ,
+            	 NT_FIELD_WIDTH 20 ,
+            	 LLR_PROP "Nature" },
+            Description TEXT
+            {
+            	 NT_FIELD_HEIGHT 20 ,
+            	 NT_FIELD_WIDTH 60 }
+    } } }
+
+    TextInFrame ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        note_graphical_information {
+            NT_INCRUSTABLE BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_PERMANENT BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_MODIFY BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_LOCATION STRING
+            {
+            	 NT_DEFAULT_VALUE "RELATIVE" },
+            NT_FONT INTEGER
+            {
+            	 NT_DEFAULT_VALUE 2 },
+            NT_FRAME BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_POS_X REAL
+            {
+            	 NT_DEFAULT_VALUE -1 },
+            NT_POS_Y REAL
+            {
+            	 NT_DEFAULT_VALUE -1 }
+        },
+        information {
+            Text TEXT
+            {
+            	 NT_INCRUSTABLE T }
+    } } }
+
+END
+
+Notes-Values { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    DesignElement ::= {
+        {"!ed/10836/79DD/245C/627bd8de3a86", "DesignElement_1","Low Level Requirement" , "" },
+        {"!ed/10837/79DD/245C/627bd9076475", "DesignElement_1","Low Level Requirement" , "" },
+        {"!ed/10838/79DD/245C/627bd92b77c5", "DesignElement_1","Low Level Requirement" , "" },
+        {"!ed/10839/79DD/245C/627bd9573ec9", "DesignElement_1","Low Level Requirement" , "" },
+        {"!ed/1084c/79DD/245C/627bdb65766d", "DesignElement_1","Low Level Requirement" , "" }}
+    TextInFrame ::= {
+        {"!ed/2758/7A4A/6DC/48f7617268c7", "TextInFrame_11",T , T , T , "RELATIVE" , 2 , T , 38.543307 , 438.543307 , " Set the cruise speed, according to quickAccel,
+quickDecel, or set buttons." }}
+END
+

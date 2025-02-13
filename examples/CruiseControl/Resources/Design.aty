@@ -1,0 +1,421 @@
+-- --------------------------------------------------------------------------
+-- notes types
+-- --------------------------------------------------------------------------
+
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+
+BEGIN
+
+Note ::=
+    SEQUENCE OF {
+	SEQUENCE {
+	    annot_object OID,
+	    name STRING,
+	    information {
+		Description TEXT {
+			NT_FIELD_HEIGHT 20,
+			NT_FIELD_WIDTH  60},
+                to_c BOOLEAN { NT_DEFAULT_VALUE false,
+			NT_PRINTABLE F,
+			NT_LEFT_LABEL "Propagate to generated code" }
+} } }
+
+-- graphical information
+Title ::=
+        SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FRAME_WIDTH INTEGER { NT_DEFAULT_VALUE 300},
+                NT_FRAME_HEIGHT INTEGER { NT_DEFAULT_VALUE 20},
+                NT_POS_X REAL { NT_DEFAULT_VALUE 10 },
+                NT_POS_Y REAL { NT_DEFAULT_VALUE 10 }
+            },
+            information {
+                Title TEXT {
+                        NT_INCRUSTABLE T,
+                        NT_DEFAULT_VALUE "Title : ",
+                        NT_FIELD_HEIGHT 1,
+                        NT_FIELD_WIDTH  60},
+                to_c BOOLEAN { NT_DEFAULT_VALUE false,
+			NT_PRINTABLE F,
+			NT_LEFT_LABEL "Propagate to generated code" }
+} } }
+
+Author ::=
+        SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FRAME_WIDTH INTEGER { NT_DEFAULT_VALUE 150},
+                NT_FRAME_HEIGHT INTEGER { NT_DEFAULT_VALUE 20},
+                NT_POS_X REAL { NT_DEFAULT_VALUE 10 },
+                NT_POS_Y REAL { NT_DEFAULT_VALUE 30 }
+            },
+            information {
+                Author TEXT {
+                        NT_INCRUSTABLE T,
+                        NT_DEFAULT_VALUE "Created by : ",
+                        NT_FIELD_HEIGHT 1,
+                        NT_FIELD_WIDTH  40},
+                to_c BOOLEAN { NT_DEFAULT_VALUE true,
+			NT_PRINTABLE F,
+			NT_LEFT_LABEL "Propagate to generated code" }
+} } }
+
+Date ::=
+        SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FRAME_WIDTH INTEGER { NT_DEFAULT_VALUE 100},
+                NT_FRAME_HEIGHT INTEGER { NT_DEFAULT_VALUE 20},
+                NT_POS_X REAL { NT_DEFAULT_VALUE 160 },
+                NT_POS_Y REAL { NT_DEFAULT_VALUE 30 }
+            },
+            information {
+                Date TEXT {
+                        NT_INCRUSTABLE T,
+                        NT_FIELD_HEIGHT 1,
+                        NT_FIELD_WIDTH  10},
+                to_c BOOLEAN { NT_DEFAULT_VALUE true,
+			NT_PRINTABLE F,
+			NT_LEFT_LABEL "Propagate to generated code" }
+} } }
+
+Version ::=
+        SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FRAME_WIDTH INTEGER { NT_DEFAULT_VALUE 50},
+                NT_FRAME_HEIGHT INTEGER { NT_DEFAULT_VALUE 20},
+                NT_POS_X REAL { NT_DEFAULT_VALUE 260 },
+                NT_POS_Y REAL { NT_DEFAULT_VALUE 30 }
+            },
+            information {
+                Version TEXT {
+                        NT_INCRUSTABLE T,
+			NT_FIELD_HEIGHT 1,
+                        NT_FIELD_WIDTH  10},
+                to_c BOOLEAN { NT_DEFAULT_VALUE true,
+			NT_PRINTABLE F,
+			NT_LEFT_LABEL "Propagate to generated code" }
+} } }
+
+ImageFile ::=
+    SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FRAME_WIDTH INTEGER { NT_DEFAULT_VALUE 300},
+                NT_FRAME_HEIGHT INTEGER { NT_DEFAULT_VALUE 20},
+                NT_POS_X REAL { NT_DEFAULT_VALUE 10 },
+                NT_POS_Y REAL { NT_DEFAULT_VALUE 10 },
+            },
+            information {
+		  file FILE { NT_INCRUSTABLE T,
+			      NT_FILE_DISPLAY  "IMAGE",
+			      NT_LEFT_LABEL "Image File:" }
+} } }
+
+TextFile ::=
+    SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_FRAME_WIDTH INTEGER { NT_DEFAULT_VALUE 300},
+                NT_FRAME_HEIGHT INTEGER { NT_DEFAULT_VALUE 20},
+                NT_POS_X REAL { NT_DEFAULT_VALUE 10 },
+                NT_POS_Y REAL { NT_DEFAULT_VALUE 10 },
+            },
+            information {
+		  file FILE { NT_INCRUSTABLE T,
+			      NT_FILE_DISPLAY  "CONTENT",
+			      NT_LEFT_LABEL "Text file:" }
+} } }
+
+DataDefinition ::=
+    SEQUENCE OF {
+	SEQUENCE {
+	annot_object OID,
+	name STRING,
+	information {
+	    Unit STRING {
+		NT_FIELD_WIDTH  20},
+	    Min STRING {
+		NT_DEFAULT_VALUE "TBD",
+		NT_FIELD_WIDTH  10},
+	    Max STRING {
+		NT_DEFAULT_VALUE "TBD",
+		NT_FIELD_WIDTH  10}
+} } }
+
+LongName ::=
+    SEQUENCE OF {
+	SEQUENCE {
+	annot_object OID,
+	name STRING,
+	information {
+	    LongName TEXT {
+		NT_FIELD_HEIGHT 1,
+		NT_FIELD_WIDTH  60},
+} } }
+
+
+Graphical ::=
+    SEQUENCE OF {
+	SEQUENCE {
+	    annot_object OID,
+	    name STRING,
+	    note_graphical_information {
+		NT_INCRUSTABLE	 BOOLEAN { NT_DEFAULT_VALUE T},
+		NT_PERMANENT	 BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+		NT_POS_X REAL { NT_DEFAULT_VALUE -1},
+		NT_POS_Y REAL { NT_DEFAULT_VALUE -1}
+	    },
+	    information {
+                Text TEXT{ NT_INCRUSTABLE T},
+                to_c BOOLEAN { NT_DEFAULT_VALUE true,
+			NT_PRINTABLE F,
+			NT_LEFT_LABEL "Propagate to generated code" }
+} } }
+
+TextInFrame ::=
+    SEQUENCE OF {
+        SEQUENCE {
+            annot_object OID,
+            name STRING,
+            note_graphical_information {
+                NT_INCRUSTABLE   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_PERMANENT     BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_MODIFY   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_LOCATION   STRING { NT_DEFAULT_VALUE "RELATIVE"},
+                NT_FONT   INTEGER { NT_DEFAULT_VALUE 2},
+                NT_FRAME   BOOLEAN { NT_DEFAULT_VALUE T},
+                NT_POS_X REAL { NT_DEFAULT_VALUE -1},
+                NT_POS_Y REAL { NT_DEFAULT_VALUE -1}
+            },
+            information { Text TEXT{ NT_INCRUSTABLE T} }
+} }
+
+END
+
+-- --------------------------------------------------------------------------
+-- annotation rules
+-- --------------------------------------------------------------------------
+
+Annotation-Rules { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+
+    -- declarations
+
+    package ::= {
+		{Note F 0 99},
+		{LongName F 0 1}
+    }
+
+    constant ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    sensor ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    named_type ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    type_element ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    output ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    input ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    hidden ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    local ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    probe ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    signal ::= {
+		{Note F 0 99},
+		{DataDefinition F 0 1}
+    }
+
+    operator ::= {
+		{Note F 0 99},
+		{LongName F 0 1}
+    }
+
+    -- graphical elements
+
+    assertion ::= {
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    ref_ident ::= {
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    literal ::= {
+		{Graphical F 0 2},
+		{TextInFrame F 0 99}
+    }
+
+    predef_opr ::= {
+		{Graphical F 0 2},
+		{TextInFrame F 0 99}
+    }
+
+    ref_operator ::= {
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    terminator ::= {
+		{Graphical F 0 2},
+		{TextInFrame F 0 99}
+    }
+
+    state_machine ::= {
+		{Note F 0 99},
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    state ::= {
+		{Note F 0 99},
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    transition ::= {
+		{Note F 0 99}
+    }
+
+    activate_block ::= {
+		{Note F 0 99},
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    branch ::= {
+		{Note F 0 99},
+		{Graphical F 0 99},
+		{TextInFrame F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    action ::= {
+		{Note F 0 99},
+		{Graphical F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    net_diagram ::= {
+		{Note F 0 99},
+		{Title F 0 1},
+		{Author F 0 1},
+		{Date F 0 1},
+		{Version F 0 1},
+		{TextInFrame F 0 99},
+		{Graphical F 0 99},
+		{TextFile F 0 99},
+		{ImageFile F 0 99}
+    }
+
+    text_diagram ::= {
+		{Note F 0 99}
+    }
+
+    equation_set ::= {
+		{Note F 0 99},
+		{TextInFrame F 0 99},
+		{Graphical F 0 99}
+    }
+
+END

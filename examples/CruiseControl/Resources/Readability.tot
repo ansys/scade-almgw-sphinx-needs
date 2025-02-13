@@ -1,0 +1,146 @@
+
+[Studio/Settings]
+
+"ShowAdvancedOptionPage"="true" 
+
+[Studio/Settings/Workspace]
+
+"DisplayStartupPage"="false" 
+
+[Scade/Styles/ScNetStyle2/Activation Block](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Activation Block/Activation]
+
+"FontColor"="(50,77,112)" 
+"FontBold"="false" 
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/Assertion](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Assertion/Entity]
+
+"FontColor"="(216,0,0)" 
+
+[Scade/Styles/ScNetStyle2/Assertion/Assign]
+
+"FontSize"="6" 
+
+[Scade/Styles/ScNetStyle2/Branch](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Branch/Entity]
+
+"FontColor"="(50,77,112)" 
+"FillColor"="(174,180,210)" 
+"FontSize"="10" 
+
+[Scade/Styles/ScNetStyle2/Action](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Action/Entity]
+
+"FontColor"="(50,77,112)" 
+"FillColor"="(174,180,210)" 
+"FontSize"="8" 
+
+[Scade/Styles/ScNetStyle2/Action/Action]
+
+"FontColor"="(0,0,0)" 
+"FontName"="Arial" 
+"FontSize"="8" 
+
+[Scade/Styles/ScNetStyle2/Edge](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Edge/Entity]
+
+"FontColor"="(50,77,112)" 
+
+[Scade/Styles/ScNetStyle2/Predefined Operator](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Predefined Operator/Entity]
+
+"FillColor"="(152,198,231)" 
+
+[Scade/Styles/ScNetStyle2/Predefined Operator/Assign]
+
+"FontColor"="(0,0,128)" 
+"FontName"="Arial Narrow" 
+"FontSize"="8" 
+
+[Scade/Styles/ScNetStyle2/Signal](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Signal/Entity]
+
+"FillColor"="(174,180,210)" 
+"FontSize"="10" 
+
+[Scade/Styles/ScNetStyle2/State](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/State/Entity]
+
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/Transition](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Transition/Entity]
+
+"FontColor"="(50,77,112)" 
+"FontSize"="10" 
+
+[Scade/Styles/ScNetStyle2/Transition/Action]
+
+"FontSize"="10" 
+"FontColor"="(0,0,0)" 
+
+[Scade/Styles/ScNetStyle2/Operator](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Operator/Assign]
+
+"FontColor"="(0,0,128)" 
+"FontName"="Arial Narrow" 
+"FontSize"="9" 
+
+[Scade/Styles/ScNetStyle2/Operator/Entity]
+
+"FontName"="Arial" 
+"FontSize"="10" 
+
+[Scade/Styles/ScNetStyle2/Operator/PinRank]
+
+"FontName"="Arial Narrow" 
+"FontSize"="7" 
+"FontColor"="(96,96,96)" 
+
+[Scade/Styles/ScNetStyle2/Variable](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Variable/Entity]
+
+"FontSize"="10" 
+
+[Scade/Styles/ScNetStyle2/Equation Set](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Equation Set/Entity]
+
+"FontSize"="8" 
+"FontName"="Arial" 
+
+[Scade/Preferences/General/FilesManagement]
+
+"AssocCreationFile"="false" 
+"PropagateNameChanges"="true" 
+"UseCreationDialogBox"="true" 
+
+[Scade/Preferences/View/NetView]
+
+"DisplayInterface"="true" 
+"DisplayInternalTypes"="true" 
