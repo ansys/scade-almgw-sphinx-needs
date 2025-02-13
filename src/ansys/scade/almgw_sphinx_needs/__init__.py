@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Ansys SCADE ALM Gateway connector for MS-Office."""
+"""Ansys SCADE ALM Gateway connector for sphinx-needs."""
 
 from pathlib import Path
 
@@ -38,16 +38,23 @@ except importlib_metadata.PackageNotFoundError:
     __version__ = '<unknown>'
 
 
-_MS_OFFICE = 'ALMGW Connector for MS-Office'
+_SPHINX_NEEDS = 'ALMGW Connector for sphinx-needs'
 
 # settings
-TOOL = 'MSOFFICE'
-REQSTYLE = 'REQSTYLE'
-REQSTYLE_DEFAULT = 'Requirement_ID'
-TEXTSTYLE = 'TEXTSTYLE'
-TEXTSTYLE_DEFAULT = 'Requirement_Text'
-DOCUMENTS = 'DOCUMENTS'
-DOCUMENTS_DEFAULT = []
+TOOL = 'SPHINX_NEEDS'
+# import
+UPSTREAM_TYPE = 'UPSTREAM_TYPE'
+UPSTREAM_TYPE_DEFAULT = 'req'
+IMPORT_DOCUMENTS = 'IMPORT_DOCUMENTS'
+IMPORT_DOCUMENTS_DEFAULT = []
+# traceabiity
+LINK_TYPE = 'LINK_TYPE'
+LINK_TYPE_DEFAULT = 'covers'
+# export
+DOWNSTREAM_TYPE = 'DOWNSTREAM_TYPE'
+DOWNSTREAM_TYPE_DEFAULT = 'sc'
+EXPORT_DOCUMENT = 'EXPORT_DOCUMENT'
+EXPORT_DOCUMENT_DEFAULT = ''
 
 
 def srg() -> str:
@@ -82,4 +89,4 @@ def exe() -> tuple[str, str]:
         if python_dir.name.lower() == 'lib':
             python_dir = python_dir.parent
     # the exe is in Scripts
-    return _MS_OFFICE, str(python_dir / 'Scripts' / 'ansys_scade_almgw_sphinx_needs.exe')
+    return _SPHINX_NEEDS, str(python_dir / 'Scripts' / 'ansys_scade_almgw_sphinx_needs.exe')

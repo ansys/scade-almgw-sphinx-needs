@@ -58,6 +58,17 @@ doc = [
 [tool.flit.module]
 name = "ansys.scade.almgw_sphinx_needs"
 
+[project.scripts]
+ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.sphinx_needs:main"
+register_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.register:main"
+setup_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.setup:main"
+
+[project.entry-points."ansys.scade.registry"]
+srg = "ansys.scade.almgw_sphinx_needs:srg"
+
+[project.entry-points."ansys.almgw.connector"]
+exe = "ansys.scade.almgw_sphinx_needs:exe"
+
 [project.urls]
 Source = "https://github.com/ansys-internal/scade-almgw-sphinx-needs"
 Issues = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/issues"

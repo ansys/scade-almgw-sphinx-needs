@@ -1,0 +1,7 @@
+[Studio/Work Interfaces/SPHINX_NEEDS23R1]
+"Version"="21200"
+"Expire"="23200"
+"Pathname"="ETCUST.DLL"
+
+[Custom/Studio/Extensions/SPHINX_NEEDS23R1]
+"Pathname"="%TARGETDIR%/settings.py"
