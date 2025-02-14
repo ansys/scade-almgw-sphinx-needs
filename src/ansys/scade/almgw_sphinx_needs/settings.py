@@ -234,7 +234,7 @@ class Settings(Dialog):
             y, '&Export schema:', '.json', default_dir, filter, FSM.LOAD
         )
         y += dy
-        filter = 'Export document (*.json)|*.json|All Files (*.*)|*.*||'
+        filter = 'Raw export file (*.json)|*.json|Document (*.rst)|*.rst|All Files (*.*)|*.*||'
         # ? default_dir = os.path.dirname(project.pathname)
         default_dir = ''
         self.ed_export_document = self.add_file(
