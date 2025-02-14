@@ -77,7 +77,9 @@ needs_extra_links = [
     },
 ]
 
-needs_extra_options = ['nature']
+needs_extra_options = ['Nature']
+
+needs_id_regex = r'^[A-Za-z0-9_!/]{5,}'
 
 needs_build_json = True
 needs_json_remove_defaults = True

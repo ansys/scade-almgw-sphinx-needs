@@ -1,7 +1,7 @@
 Architecture notes
 ==================
 
-The cruise control interface has been introduced in the :doc:`Interface <interface>` section.
+The cruise control interface has been introduced in the :doc:`Interface <requirements/interface>` section.
 
 When the cruise control is enabled, a first part computes the target cruise speed
 and the other one ensures the regulation:

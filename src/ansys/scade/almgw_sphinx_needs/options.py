@@ -40,7 +40,7 @@ class Options:
         self.version = ''
         self.import_documents = []
         self.export_schema = ''
-        self.export_document = ''
+        self.export_document = None
 
     def load(self, project: Project):
         """Update the dialog with the project's settings."""
@@ -52,7 +52,7 @@ class Options:
             path = Path(file)
             if not path.is_absolute():
                 path = directory.joinpath(path)
-            self.import_documents.append(path)
+            self.import_documents.append(path.resolve())
 
         self.upstream_type = project.get_scalar_tool_prop_def(
             sn.TOOL, sn.UPSTREAM_TYPE, sn.UPSTREAM_TYPE_DEFAULT, None
@@ -74,6 +74,11 @@ class Options:
             pyamlgw.TOOL, pyamlgw.LLRSCHEMA, pyamlgw.LLRSCHEMA_DEFAULT, None
         )
 
-        self.export_document = project.get_scalar_tool_prop_def(
-            sn.TOOL, sn.EXPORT_DOCUMENT, sn.EXPORT_DOCUMENT_DEFAULT, None
+        path = Path(
+            project.get_scalar_tool_prop_def(
+                sn.TOOL, sn.EXPORT_DOCUMENT, sn.EXPORT_DOCUMENT_DEFAULT, None
+            )
         )
+        if not path.is_absolute():
+            path = directory.joinpath(path)
+        self.export_document = path.resolve()

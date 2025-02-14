@@ -1,9 +1,9 @@
-Cruise control software requirements
-====================================
+Cruise Control
+==============
 
 .. toctree::
 
     introduction
     requirements/index
     architecture
-    model
+    design

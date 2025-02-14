@@ -22,6 +22,7 @@
 
 """Ansys SCADE ALM Gateway connector for sphinx-needs."""
 
+import json
 from pathlib import Path
 import shutil
 
@@ -30,6 +31,7 @@ import ansys.scade.apitools  # noqa: F401
 
 # must be imported after apitools
 # isort: split
+from ansys.scade.almgw_sphinx_needs.export import export_document
 from ansys.scade.almgw_sphinx_needs.needs import import_document
 from ansys.scade.almgw_sphinx_needs.options import Options
 from ansys.scade.almgw_sphinx_needs.trace import TraceDocument
@@ -166,6 +168,29 @@ class SphinxNeeds(Connector):
         trace.merge_links(links)
         trace.write()
 
+        if cache:
+            # save the updated cache
+            project.write()
+
+        assert self.project
+        options = Options()
+        options.load(self.project)
+        if not options.export_document:
+            # error but return 1 since the traceability has been updated
+            print('export: No document')
+            return 1
+
+        # TODO: add an option to export images
+        model = self.export_llrs()
+        if not model:
+            # error but return 1 since the traceability has been updated
+            print('llr generation failure')
+            return 1
+
+        # generation of matrix with the cached imported data
+        llrs = json.loads(model.read_text())
+        assert llrs
+        export_document(llrs, trace, options)
         print('requirements exported.')
         return 1
 

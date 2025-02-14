@@ -2,3 +2,5 @@ Documents/_build
 Documents/source/_scade
 Model/*.almgr
 Model/*.reqs
+Model/links.json
+Model/*.llrs
