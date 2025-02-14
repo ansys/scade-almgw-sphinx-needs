@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Provides the ``MS Office Settings`` command."""
+"""Provides the ``sphinx-needs Settings`` command."""
 
 from enum import Enum
 import os
@@ -155,7 +155,7 @@ class LabelComboBox(ObjectComboBox):
 w_settings = wd + hm * 2
 # something strange, need to add one level of margin more
 w_settings += 15
-h_settings = 350
+h_settings = 380
 
 
 class Settings(Dialog):
@@ -172,6 +172,7 @@ class Settings(Dialog):
         self.ed_upstream_type = None
         self.ed_downstream_type = None
         self.ed_link_type = None
+        self.ed_version = None
         self.ed_export_schema = None
         self.ed_export_document = None
         self.lb_import_documents = None
@@ -223,6 +224,8 @@ class Settings(Dialog):
         self.ed_downstream_type = self.add_edit(y, '&Downstream type:')
         y += dy
         self.ed_link_type = self.add_edit(y, '&Traceability link type:')
+        y += dy
+        self.ed_version = self.add_edit(y, '&Version:')
         y += dy
         filter = 'Export schema (*.json)|*.json|All Files (*.*)|*.*||'
         # ? default_dir = os.path.dirname(project.pathname)
@@ -322,35 +325,41 @@ class Settings(Dialog):
         self.lb_import_documents.set_items(documents)
 
         assert self.ed_upstream_type
-        style = self.project.get_scalar_tool_prop_def(
+        upstream_type = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.UPSTREAM_TYPE, sn.UPSTREAM_TYPE_DEFAULT, None
         )
-        self.ed_upstream_type.set_name(style)
+        self.ed_upstream_type.set_name(upstream_type)
 
         assert self.ed_downstream_type
-        style = self.project.get_scalar_tool_prop_def(
+        downstream_type = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.DOWNSTREAM_TYPE, sn.DOWNSTREAM_TYPE_DEFAULT, None
         )
-        self.ed_downstream_type.set_name(style)
+        self.ed_downstream_type.set_name(downstream_type)
 
         assert self.ed_link_type
-        style = self.project.get_scalar_tool_prop_def(
+        link_type = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.LINK_TYPE, sn.LINK_TYPE_DEFAULT, None
         )
-        self.ed_link_type.set_name(style)
+        self.ed_link_type.set_name(link_type)
+
+        assert self.ed_version
+        version = self.project.get_scalar_tool_prop_def(
+            sn.TOOL, sn.VERSION, sn.VERSION_DEFAULT, None
+        )
+        self.ed_version.set_name(version)
 
         assert self.ed_export_schema
-        schema = self.project.get_scalar_tool_prop_def(
+        export_schema = self.project.get_scalar_tool_prop_def(
             pyamlgw.TOOL, pyamlgw.LLRSCHEMA, pyamlgw.LLRSCHEMA_DEFAULT, None
         )
-        self.ed_export_schema.set_name(schema)
+        self.ed_export_schema.set_name(export_schema)
         self.ed_export_schema.reldir = str(Path(self.project.pathname).parent)
 
         assert self.ed_export_document
-        schema = self.project.get_scalar_tool_prop_def(
+        export_document = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.EXPORT_DOCUMENT, sn.EXPORT_DOCUMENT_DEFAULT, None
         )
-        self.ed_export_document.set_name(schema)
+        self.ed_export_document.set_name(export_document)
         self.ed_export_document.reldir = str(Path(self.project.pathname).parent)
 
     def write_settings(self):
@@ -364,33 +373,39 @@ class Settings(Dialog):
         )
 
         assert self.ed_upstream_type
-        style = self.ed_upstream_type.get_name()
+        upstream_type = self.ed_upstream_type.get_name()
         self.project.set_scalar_tool_prop_def(
-            sn.TOOL, sn.UPSTREAM_TYPE, style, sn.UPSTREAM_TYPE_DEFAULT, None
+            sn.TOOL, sn.UPSTREAM_TYPE, upstream_type, sn.UPSTREAM_TYPE_DEFAULT, None
         )
 
         assert self.ed_downstream_type
-        style = self.ed_downstream_type.get_name()
+        downstream_type = self.ed_downstream_type.get_name()
         self.project.set_scalar_tool_prop_def(
-            sn.TOOL, sn.DOWNSTREAM_TYPE, style, sn.DOWNSTREAM_TYPE_DEFAULT, None
+            sn.TOOL, sn.DOWNSTREAM_TYPE, downstream_type, sn.DOWNSTREAM_TYPE_DEFAULT, None
         )
 
         assert self.ed_link_type
-        style = self.ed_link_type.get_name()
+        link_type = self.ed_link_type.get_name()
         self.project.set_scalar_tool_prop_def(
-            sn.TOOL, sn.LINK_TYPE, style, sn.LINK_TYPE_DEFAULT, None
+            sn.TOOL, sn.LINK_TYPE, link_type, sn.LINK_TYPE_DEFAULT, None
+        )
+
+        assert self.ed_version
+        version = self.ed_version.get_name()
+        self.project.set_scalar_tool_prop_def(
+            sn.TOOL, sn.VERSION, version, sn.VERSION_DEFAULT, None
         )
 
         assert self.ed_export_schema
-        schema = self.ed_export_schema.get_name()
+        export_schema = self.ed_export_schema.get_name()
         self.project.set_scalar_tool_prop_def(
-            pyamlgw.TOOL, pyamlgw.LLRSCHEMA, schema, pyamlgw.LLRSCHEMA_DEFAULT, None
+            pyamlgw.TOOL, pyamlgw.LLRSCHEMA, export_schema, pyamlgw.LLRSCHEMA_DEFAULT, None
         )
 
         assert self.ed_export_document
-        schema = self.ed_export_document.get_name()
+        export_document = self.ed_export_document.get_name()
         self.project.set_scalar_tool_prop_def(
-            sn.TOOL, sn.EXPORT_DOCUMENT, schema, sn.EXPORT_DOCUMENT_DEFAULT, None
+            sn.TOOL, sn.EXPORT_DOCUMENT, export_document, sn.EXPORT_DOCUMENT_DEFAULT, None
         )
 
 

@@ -23,14 +23,18 @@
 """Ansys SCADE ALM Gateway connector for sphinx-needs."""
 
 from pathlib import Path
-from typing import List
+import shutil
 
+# shall modify sys.path to access SCACE APIs
+import ansys.scade.apitools  # noqa: F401
+
+# must be imported after apitools
+# isort: split
+from ansys.scade.almgw_sphinx_needs.needs import add_document
+from ansys.scade.almgw_sphinx_needs.options import Options
+from ansys.scade.almgw_sphinx_needs.trace import TraceDocument
 from ansys.scade.pyalmgw.connector import Connector
 from ansys.scade.pyalmgw.documents import ReqProject
-
-# ---------------------------------------------
-# connector implementation
-# ---------------------------------------------
 
 
 class SphinxNeeds(Connector):
@@ -95,6 +99,26 @@ class SphinxNeeds(Connector):
               and requirement tree shall be kept
             * 0: requirements and traceability links shall be correctly imported
         """
+        assert self.project
+        options = Options()
+        options.load(self.project)
+        if not options.import_documents:
+            print('import: No documents')
+            return -1
+
+        self.map_requirements = {}
+        project = ReqProject(file)
+        self.read_requirements(project, options)
+
+        links = TraceDocument(project, self.get_trace_file(), self.map_requirements)
+        links.read()
+
+        project.write()
+
+        # cache the requirements, for debug purpose
+        cache = self.get_reqs_file()
+        shutil.copyfile(file, cache)
+
         # req_file is updated
         print('requirements imported.')
         return 0
@@ -171,13 +195,15 @@ class SphinxNeeds(Connector):
         """Open the document, and locate the requirement when not empty."""
         return -1
 
-    def get_documents(self) -> List[Path]:
-        """Return the documents specified in the project."""
-        return []
-
-    def read_requirements(self, project: ReqProject):
+    def read_requirements(self, project: ReqProject, options: Options):
         """Read all the requirements from the documents."""
-        pass
+        assert self.project
+
+        self.map_requirements = {}
+
+        for path in options.import_documents:
+            if path.suffix.lower() == '.json':
+                self.map_requirements.update(add_document(project, path, options))
 
 
 def main():

@@ -26,8 +26,8 @@ Command line utility to setup a project for the connector.
 .. code:: text
 
     usage: setup_ansys_scade_almgw_sphinx_needs [-h] [-p <project>] [-u <upstream>]
-                                                [-d <downstream>] [-l <link>] [-s <schema>]
-                                                [-o <output>] [-i [<inputs> ...]]
+                                                [-d <downstream>] [-l <link>] [-v <version>]
+                                                [-s <schema>] [-o <output>] [-i [<inputs> ...]]
 
     options:
       -h, --help            show this help message and exit
@@ -39,6 +39,8 @@ Command line utility to setup a project for the connector.
                             downstream type
       -l <link>, --link <link>
                             link type
+      -v <version>, --version <version>
+                            version of requirements
       -s <schema>, --schema <schema>
                             json export schema
       -o <output>, --output <output>
@@ -81,6 +83,11 @@ def setup(project: Project, options: Namespace) -> int:
             sn.TOOL, sn.LINK_TYPE, options.link, sn.LINK_TYPE_DEFAULT, None
         )
 
+    if options.version:
+        project.set_scalar_tool_prop_def(
+            sn.TOOL, sn.VERSION, options.version, sn.VERSION_DEFAULT, None
+        )
+
     if options.schema:
         project.set_scalar_tool_prop_def(
             pyamlgw.TOOL, pyamlgw.LLRSCHEMA, options.schema, pyamlgw.LLRSCHEMA_DEFAULT, None
@@ -106,6 +113,9 @@ def main() -> int:
         '-d', '--downstream', metavar='<downstream>', help='downstream type', default=''
     )
     parser.add_argument('-l', '--link', metavar='<link>', help='link type', default='')
+    parser.add_argument(
+        '-v', '--version', metavar='<version>', help='version of requirements', default=''
+    )
     parser.add_argument('-s', '--schema', metavar='<schema>', help='json export schema', default='')
     parser.add_argument('-o', '--output', metavar='<output>', help='export document', default='')
     parser.add_argument(
