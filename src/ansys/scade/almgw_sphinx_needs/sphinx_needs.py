@@ -30,7 +30,7 @@ import ansys.scade.apitools  # noqa: F401
 
 # must be imported after apitools
 # isort: split
-from ansys.scade.almgw_sphinx_needs.needs import add_document
+from ansys.scade.almgw_sphinx_needs.needs import import_document
 from ansys.scade.almgw_sphinx_needs.options import Options
 from ansys.scade.almgw_sphinx_needs.trace import TraceDocument
 from ansys.scade.pyalmgw.connector import Connector
@@ -149,6 +149,23 @@ class SphinxNeeds(Connector):
             * 1: requirements and traceability links shall be exported
             * 2: previous export status and requirement tree shall be kept
         """
+        # update the cache, if exists
+        cache = self.get_reqs_file()
+        if not cache.exists():
+            cache = None
+            project = ReqProject()
+        else:
+            project = ReqProject(cache)
+            project.read()
+            # reset the tracebaility
+            project.traceability_links = []
+        # cache the links into a separate trace file since there's no way
+        # to store traceability links within sphinx-needs (AFAIK)
+        trace = TraceDocument(project, self.get_trace_file())
+        trace.read()
+        trace.merge_links(links)
+        trace.write()
+
         print('requirements exported.')
         return 1
 
@@ -203,7 +220,7 @@ class SphinxNeeds(Connector):
 
         for path in options.import_documents:
             if path.suffix.lower() == '.json':
-                self.map_requirements.update(add_document(project, path, options))
+                self.map_requirements.update(import_document(project, path, options))
 
 
 def main():

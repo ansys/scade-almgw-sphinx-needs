@@ -49,7 +49,10 @@ class Parser:
             assert id == need['id']
             section_name = need.get('section_name')
             content = need['content']
+            # convert paragraph separators obvioumarkers
+            description = content.replace('\n\n', '\n').replace('``', '`')
             title = need['title']
+            text = f'[{id}] {title}'
 
             if not section_name:
                 # not sure this may happen: defensive programming
@@ -59,7 +62,7 @@ class Parser:
                 if not section:
                     section = Section(req_doc, '', section_name)
                     sections[section_name] = section
-            req = Requirement(section, id, text=title, description=content)
+            req = Requirement(section, id, text=text, description=description)
             self.requirements[id] = req
 
 
@@ -72,7 +75,7 @@ def load_needs(path: Path, options: Options) -> Tuple[str, Dict[str, dict]]:
     return name, needs
 
 
-def add_document(project: ReqProject, path: Path, options: Options) -> Dict[str, Requirement]:
+def import_document(project: ReqProject, path: Path, options: Options) -> Dict[str, Requirement]:
     """Parse the input sphinx-needs document and return the contained requirements hierarchy."""
     name, needs = load_needs(path, options)
     req_doc = ReqDocument(project, path.as_posix(), name)
