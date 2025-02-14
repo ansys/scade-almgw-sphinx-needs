@@ -52,6 +52,7 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
+# sphinx-needs configuration
 needs_types = [
     {
         'directive': 'hlr',
@@ -82,4 +83,5 @@ needs_extra_options = ['Nature']
 needs_id_regex = r'^[A-Za-z0-9_!/]{5,}'
 
 needs_build_json = True
+
 needs_json_remove_defaults = True
