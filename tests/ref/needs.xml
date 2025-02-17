@@ -1,16 +1,16 @@
 <ReqProject xmlns="http://www.esterel-technologies.com/scade/lifecycle/almgateway/scade_req/1" identifier="" text="">
   <traceabilityLinks/>
   <documents>
-    <Document identifier="D:/AnsysDev/Nobackup/PyAnsys/sphinx-needs/tests/Needs/_build/html/needs.json" text="Needs">
+    <Document identifier="$(ROOT)/tests/Documents/_build/html/needs.json" text="Needs">
       <children>
         <Section identifier="" text="Needs" description="">
           <children>
-            <Requirement identifier="CC_HLR_CCB_01" text="[CC_HLR_CCB_01] High Level Requirement" description="Bla."/>
-            <Requirement identifier="CC_HLR_CCB_03" text="[CC_HLR_CCB_03] Two paragraphs" description="Bla paragraph 1.&#10;Bla paragraph 2."/>
-            <Requirement identifier="CC_HLR_CCB_04" text="[CC_HLR_CCB_04] Back ticks" description="Bla `bla`  `bla`."/>
+            <Requirement identifier="REQ_01" text="[REQ_01] High Level Requirement" description="Bla."/>
+            <Requirement identifier="REQ_03" text="[REQ_03] Two paragraphs" description="Bla paragraph 1.&#10;Bla paragraph 2."/>
+            <Requirement identifier="REQ_04" text="[REQ_04] Back ticks" description="Bla `bla`  `bla`."/>
           </children>
         </Section>
-        <Requirement identifier="CC_HLR_CCB_00" text="[CC_HLR_CCB_00] Extra Requirement" description="Not in a section."/>
+        <Requirement identifier="REQ_00" text="[REQ_00] Extra Requirement" description="Not in a section."/>
       </children>
     </Document>
   </documents>

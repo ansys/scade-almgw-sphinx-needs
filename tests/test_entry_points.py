@@ -22,17 +22,17 @@
 
 from pathlib import Path
 
-import ansys.scade.almgw_sphinx_needs as ms
+import ansys.scade.almgw_sphinx_needs as sn
 
 
 def test_srg():
-    path = ms.srg()
+    path = sn.srg()
     assert path
     assert Path(path).exists()
 
 
 def test_exe():
-    name, path = ms.exe()
+    name, path = sn.exe()
     assert name
     assert path
     assert Path(path).exists()

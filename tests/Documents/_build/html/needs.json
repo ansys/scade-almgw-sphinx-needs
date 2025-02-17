@@ -1,33 +1,33 @@
 {
-    "created": "2025-02-14T17:43:35.179776",
+    "created": "2025-02-17T09:59:28.919472",
     "current_version": "",
     "project": "Needs",
     "versions": {
         "": {
-            "created": "2025-02-14T17:43:35.179776",
+            "created": "2025-02-17T09:59:28.919472",
             "creator": {
                 "program": "sphinx_needs",
                 "version": "4.2.0"
             },
             "needs": {
-                "CC_HLR_CCB_00": {
+                "REQ_00": {
                     "content": "Not in a section.",
                     "docname": "index",
                     "external_css": "external_link",
                     "full_title": "Extra Requirement",
-                    "id": "CC_HLR_CCB_00",
+                    "id": "REQ_00",
                     "layout": "",
                     "lineno": 1,
                     "title": "Extra Requirement",
                     "type": "hlr",
                     "type_name": "REQ"
                 },
-                "CC_HLR_CCB_01": {
+                "REQ_01": {
                     "content": "Bla.",
                     "docname": "index",
                     "external_css": "external_link",
                     "full_title": "High Level Requirement",
-                    "id": "CC_HLR_CCB_01",
+                    "id": "REQ_01",
                     "layout": "",
                     "lineno": 10,
                     "section_name": "Needs",
@@ -38,12 +38,12 @@
                     "type": "hlr",
                     "type_name": "REQ"
                 },
-                "CC_HLR_CCB_02": {
+                "REQ_02": {
                     "content": "Not a HLR.",
                     "docname": "index",
                     "external_css": "external_link",
                     "full_title": "Other requirement",
-                    "id": "CC_HLR_CCB_02",
+                    "id": "REQ_02",
                     "layout": "",
                     "lineno": 15,
                     "section_name": "Needs",
@@ -54,12 +54,12 @@
                     "type": "misc",
                     "type_name": "MISC"
                 },
-                "CC_HLR_CCB_03": {
+                "REQ_03": {
                     "content": "Bla paragraph 1.\n\nBla paragraph 2.",
                     "docname": "index",
                     "external_css": "external_link",
                     "full_title": "Two paragraphs",
-                    "id": "CC_HLR_CCB_03",
+                    "id": "REQ_03",
                     "layout": "",
                     "lineno": 20,
                     "section_name": "Needs",
@@ -70,12 +70,12 @@
                     "type": "hlr",
                     "type_name": "REQ"
                 },
-                "CC_HLR_CCB_04": {
+                "REQ_04": {
                     "content": "Bla ``bla``  `bla`.",
                     "docname": "index",
                     "external_css": "external_link",
                     "full_title": "Back ticks",
-                    "id": "CC_HLR_CCB_04",
+                    "id": "REQ_04",
                     "layout": "",
                     "lineno": 27,
                     "section_name": "Needs",

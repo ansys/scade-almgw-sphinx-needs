@@ -34,7 +34,7 @@ def test_needs(local_tmpdir):
     ref = _ref_dir / 'needs.xml'
     dst = local_tmpdir / 'needs.xml'
     project = needs.ReqProject(dst)
-    path = Path(__file__).parent / 'Needs' / '_build' / 'html' / 'needs.json'
+    path = Path(__file__).parent / 'Documents' / '_build' / 'html' / 'needs.json'
     options = needs.Options()
     options.upstream_type = 'hlr'
     options.version = ''
