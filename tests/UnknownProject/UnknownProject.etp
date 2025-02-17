@@ -4,9 +4,6 @@
 		<Prop id="3" name="@STUDIO:PRODUCT">
 			<value>BATF</value>
 		</Prop>
-		<Prop id="4" name="@MSOFFICE:DOCUMENTS">
-			<value>UnknownProject.docx</value>
-		</Prop>
 		<Prop id="5" name="@SPHINX_NEEDS:IMPORT_DOCUMENTS">
 			<value>needs.json</value>
 		</Prop>

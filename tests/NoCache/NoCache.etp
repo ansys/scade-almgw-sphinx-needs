@@ -308,9 +308,6 @@
 			<value>57</value>
 			<value>65</value>
 		</Prop>
-		<Prop id="86" name="@MSOFFICE:DOCUMENTS">
-			<value>NoCache.docx</value>
-		</Prop>
 		<Prop id="87" name="@STUDIO:TOOLCONF">
 			<value>DiffAnalyzer</value>
 			<value>14</value>

@@ -33,7 +33,7 @@ see :ref:`contribute_scade_sphinx_needs` for installing in developer mode.
 
        python -m pip install --user ansys-scade-almgw-sphinx-needs
 
-#. For Ansys SCADE releases 2024 R2 and below, complete the installation with
+#. For Ansys SCADE releases 2024 R1 and below, complete the installation with
    this command:
 
    .. code:: bash
@@ -44,6 +44,16 @@ see :ref:`contribute_scade_sphinx_needs` for installing in developer mode.
 
       This additional step is not required when installing the package with
       Ansys SCADE Extension Manager.
+
+#. For Ansys SCADE 2024 R2 and below, complete the installation as follows:
+
+   #. Copy ``ansys/scade/almgw_sphinx_needs/almgw_sphinx_needs.properties`` to the
+      ``SCADE LifeCycle/ALM Gateway/external`` directory of the SCADE 2024 R2.
+
+      For example: ``C:\Program Files\ANSYS Inc\v242\SCADE\SCADE LifeCycle\ALM Gateway\external``.
+
+   #. Edit the copy of ``almgw_sphinx_needs.properties`` to replace ``%PYTHON_DIR%`` by the Python's
+      directory selected for the package's installation, to access ``ansys_scade_almgw_sphinx_needs.exe``.
 
 .. LINKS AND REFERENCES
 .. _pip: https://pypi.org/project/pip/

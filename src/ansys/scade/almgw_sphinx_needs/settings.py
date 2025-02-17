@@ -148,7 +148,7 @@ class LabelComboBox(ObjectComboBox):
 
 
 # -----------------------------------------------------------------------
-# MS Office Settings
+# Settings
 # -----------------------------------------------------------------------
 
 # overall dimensions

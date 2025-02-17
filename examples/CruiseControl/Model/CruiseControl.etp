@@ -915,9 +915,6 @@
 			<value>TRA_REQ_005</value>
 			<configuration>506</configuration>
 		</Prop>
-		<Prop id="541" name="@MSOFFICE:DOCUMENTS">
-			<value>../Documents/Cruise Control Requirements.docx</value>
-		</Prop>
 		<Prop id="542" name="@ALMGW:LLRSCHEMA">
 			<value>../Resources/Suite.json</value>
 		</Prop>

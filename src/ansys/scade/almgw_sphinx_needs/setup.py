@@ -103,7 +103,7 @@ def setup(project: Project, options: Namespace) -> int:
 
 
 def main() -> int:
-    """Implement the ``ansys.scade.almgw_msoffice.setup:main`` packages's project script."""
+    """Implement the ``ansys.scade.almgw_sphinx_needs.setup:main`` packages's project script."""
     parser = ArgumentParser()
     parser.add_argument(
         '-p', '--project', metavar='<project>', help='Ansys SCADE project (ETP)', default=''
