@@ -39,6 +39,7 @@ import scade.model.project.stdproject as std
 import scade.model.suite as suite
 import scade.model.testenv as qte
 
+from ansys.scade.almgw_sphinx_needs import __version__
 from ansys.scade.apitools.info import get_scade_home
 
 
@@ -105,6 +106,7 @@ def cmp_file(reference: Path, result: Path, n=3, linejunk=None):
         _.replace('$(ROOT)', root)
         .replace('$(SCADE)', scade_home)
         .replace('$(DIR)', result.parent.as_posix())
+        .replace('$(VERSION)', __version__)
         for _ in ref_lines
     ]
     with result.open() as f:

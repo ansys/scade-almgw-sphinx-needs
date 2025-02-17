@@ -25,6 +25,7 @@
 import json
 from pathlib import Path
 import shutil
+import webbrowser
 
 # shall modify sys.path to access SCACE APIs
 import ansys.scade.apitools  # noqa: F401
@@ -32,7 +33,7 @@ import ansys.scade.apitools  # noqa: F401
 # must be imported after apitools
 # isort: split
 from ansys.scade.almgw_sphinx_needs.export import export_document
-from ansys.scade.almgw_sphinx_needs.needs import import_document
+from ansys.scade.almgw_sphinx_needs.needs import import_document, load_needs
 from ansys.scade.almgw_sphinx_needs.options import Options
 from ansys.scade.almgw_sphinx_needs.trace import TraceDocument
 from ansys.scade.pyalmgw.connector import Connector
@@ -187,7 +188,7 @@ class SphinxNeeds(Connector):
             print('llr generation failure')
             return 1
 
-        # generation of matrix with the cached imported data
+        # generation the rst document
         llrs = json.loads(model.read_text())
         assert llrs
         export_document(llrs, trace, options)
@@ -196,7 +197,7 @@ class SphinxNeeds(Connector):
 
     def on_manage(self, pid: int) -> int:
         """
-        There is no tool to run.
+        Run a browser with the main page.
 
         Parameters
         ----------
@@ -211,11 +212,19 @@ class SphinxNeeds(Connector):
             * 0: if ‘Management Requirements’ UI of ALM tool is successfully launched
             * 1: to clean requirement list on the SCADE IDE ‘Requirements’ window
         """
-        return -1
+        assert self.project
+        options = Options()
+        options.load(self.project)
+        if not options.import_documents:
+            print('manage: No documents')
+            return -1
+        first = options.import_documents[0]
+        path = first.parent / 'index.html'
+        return self.open_document(path, '')
 
     def on_locate(self, req: str, pid: int) -> int:
         """
-        Run a text editor with the document containing the requirement and locate it.
+        Run a browser with the document containing the requirement and locate it.
 
         Parameters
         ----------
@@ -231,11 +240,36 @@ class SphinxNeeds(Connector):
             * -1: if an error occurs executing the command
             * 0: if the command is successfully executed
         """
-        return -1
+        assert self.project
+        options = Options()
+        options.load(self.project)
+
+        for path in options.import_documents:
+            if path.suffix.lower() == '.json':
+                _, needs = load_needs(path, options)
+                need = needs.get(req)
+                if need:
+                    break
+        else:
+            print('locate: %s requirement not found' % req)
+            return -1
+
+        file = path.parent / (need['docname'] + '.html')
+        return self.open_document(file, req)
 
     def open_document(self, file: Path, req: str):
         """Open the document, and locate the requirement when not empty."""
-        return -1
+        if req:
+            if False:
+                # uses default browser but can't locate reqn with Firefox for example
+                uri = file.as_uri()
+            else:
+                # might run Edge instead of a default browser
+                uri = file.as_posix()
+            uri += f'#{req}'
+        else:
+            uri = file.as_uri()
+        return 0 if webbrowser.open(uri) else -1
 
     def read_requirements(self, project: ReqProject, options: Options):
         """Read all the requirements from the documents."""

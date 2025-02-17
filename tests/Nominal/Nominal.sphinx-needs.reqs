@@ -1,0 +1,20 @@
+<ReqProject xmlns="http://www.esterel-technologies.com/scade/lifecycle/almgateway/scade_req/1" identifier="" text="">
+  <traceabilityLinks>
+    <TraceabilityLink type="Covering:trace" local="true" source="!ed/91/7A8D/4DD0/6745dacb615b" target="REQ_01"/>
+    <TraceabilityLink type="Covering:trace" local="true" source="!ed/4b/7A8D/4DD0/6745d1e16091" target="REQ_00"/>
+  </traceabilityLinks>
+  <documents>
+    <Document identifier="needs.json" text="Needs">
+      <children>
+        <Section identifier="" text="Needs" description="">
+          <children>
+            <Requirement identifier="REQ_01" text="[REQ_01] High Level Requirement" description="Bla."/>
+            <Requirement identifier="REQ_03" text="[REQ_03] Two paragraphs" description="Bla paragraph 1.&#10;Bla paragraph 2."/>
+            <Requirement identifier="REQ_04" text="[REQ_04] Back ticks" description="Bla `bla`  `bla`."/>
+          </children>
+        </Section>
+        <Requirement identifier="REQ_00" text="[REQ_00] Extra Requirement" description="Not in a section."/>
+      </children>
+    </Document>
+  </documents>
+</ReqProject>
