@@ -51,12 +51,14 @@ def _export_to_json(llrs: dict, trace: TraceDocument, options: Options):
         title = llr['name']
         scade_type = llr['scadetype']
         scade_path = llr['pathname']
-        content = f'{scade_type} {scade_path}'
+        scade_url = llr['url']
+        content = f'`{scade_type} {scade_path} <{scade_url}>`_'
         need = {}
         need['id'] = oid
         need['type'] = options.downstream_type
         need['title'] = title
         need['content'] = content
+        # additional attributes, must be declared in conf.py
         for attribute in llr.get('attributes', []):
             need[attribute['name']] = attribute['value']
         links = map_links.get(oid, [])
