@@ -55,7 +55,7 @@ def _run_setup(*args) -> subprocess.CompletedProcess:
 @pytest.mark.parametrize(
     'name, args',
     [
-        ['all', '-u hlr -d llr -l covers -v 0.9 -s c:/schema.json -o output.json -i a B/c.json'],
+        ['all', '-u hlr -d llr -l covers -v 0.9 -s c:/schema.json -o output.json -i a B/c.json -g'],
         ['none', ''],
     ],
 )

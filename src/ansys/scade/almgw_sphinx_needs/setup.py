@@ -28,6 +28,7 @@ Command line utility to setup a project for the connector.
     usage: setup_ansys_scade_almgw_sphinx_needs [-h] [-p <project>] [-u <upstream>]
                                                 [-d <downstream>] [-l <link>] [-v <version>]
                                                 [-s <schema>] [-o <output>] [-i [<inputs> ...]]
+                                                [-g]
 
     options:
       -h, --help            show this help message and exit
@@ -47,6 +48,7 @@ Command line utility to setup a project for the connector.
                             export document
       -i [<inputs> ...], --inputs [<inputs> ...]
                             requirements documents
+      -g, --graphics        export diagrams
 """
 
 from argparse import ArgumentParser, Namespace
@@ -98,6 +100,9 @@ def setup(project: Project, options: Namespace) -> int:
             sn.TOOL, sn.EXPORT_DOCUMENT, options.output, sn.EXPORT_DOCUMENT_DEFAULT, None
         )
 
+    if options.graphics:
+        project.set_bool_tool_prop_def(pyamlgw.TOOL, 'DIAGRAMS', options.graphics, False, None)
+
     project.save(project.pathname)
     return 0
 
@@ -120,6 +125,9 @@ def main() -> int:
     parser.add_argument('-o', '--output', metavar='<output>', help='export document', default='')
     parser.add_argument(
         '-i', '--inputs', metavar='<inputs>', help='requirements documents', nargs='*', default=[]
+    )
+    parser.add_argument(
+        '-g', '--graphics', action='store_true', help='export diagrams', default=False
     )
 
     options = parser.parse_args()

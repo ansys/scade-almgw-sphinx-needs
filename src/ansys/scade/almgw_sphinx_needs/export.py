@@ -24,6 +24,8 @@
 
 import datetime
 import json
+from pathlib import Path
+import shutil
 from typing import List
 
 import ansys.scade.almgw_sphinx_needs as sn
@@ -50,14 +52,34 @@ def _export_to_json(llrs: dict, trace: TraceDocument, options: Options):
         oid = llr['oid']
         title = llr['name']
         scade_type = llr['scadetype']
+        scade_type = scade_type[0].upper() + scade_type[1:]
         scade_path = llr['pathname']
         scade_url = llr['url']
-        content = f'`{scade_type} {scade_path} <{scade_url}>`_'
+        icon = llr['icon']
+        if not icon:
+            icon = Path(__file__).parent / 'res' / '_null.png'
+        image = llr.get('image')
+        if not image:
+            image = Path(__file__).parent / 'res' / '_null.png'
         need = {}
         need['id'] = oid
         need['type'] = options.downstream_type
         need['title'] = title
+        content = f'`{scade_type} {scade_path} <{scade_url}>`_'
         need['content'] = content
+        # copy the image to the target directory
+        src = Path(image)
+        dst = target_dir / '_static' / src.name.replace(' ', '_')
+        dst.parent.mkdir(exist_ok=True)
+        shutil.copyfile(src, dst)
+        need['image'] = dst.as_posix()
+        # copy the icon to the target directory
+        src = Path(icon)
+        dst = target_dir / '_static' / src.name.replace(' ', '_')
+        dst.parent.mkdir(exist_ok=True)
+        if not dst.exists():
+            shutil.copyfile(src, dst)
+        need['icon'] = dst.as_posix()
         # additional attributes, must be declared in conf.py
         for attribute in llr.get('attributes', []):
             need[attribute['name']] = attribute['value']

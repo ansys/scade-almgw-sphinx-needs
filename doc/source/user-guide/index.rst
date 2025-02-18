@@ -10,7 +10,14 @@ Refer to `needs_build_json`_ for details.
 The connector exports the SCADE needs to a file (JSON) that can be imported with
 the directive `needimport`_.
 
+Configuration
+-------------
+
+The connector requires a minimal `build configuration`_ customization, to declare the types and extra options.
+
 Example of sphinx-needs configuration (``conf.py``)::
+
+    ...
 
     # sphinx-needs configuration
     needs_types = [
@@ -37,8 +44,36 @@ Example of sphinx-needs configuration (``conf.py``)::
         },
     ]
 
-    # corresponds to the annotation DesignElement
-    needs_extra_options = ['Nature']
+    needs_extra_options = [
+        # mandatory: icon of the element
+        'icon',
+        # when export graphics is selected: image of the element
+        'image',
+        # field 'Nature' of the DesignElement annotation
+        'Nature',
+    ]
+
+    # define a custom layout to
+    # * add the icon
+    # * hide the id that
+    # * insert the diagram or equation sets in the footer
+    needs_layouts = {
+        'scade-suite': {
+            'grid': 'simple_footer',
+            'layout': {
+                'head': [
+                    '<<meta("type_name")>>: <<image("{{icon}}")>> '
+                    '**<<meta("title")>>**>> '
+                    '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle")>>'
+                ],
+                'meta': [
+                    '<<meta_all(exclude=["icon", "image", "layout"], no_links=True)>>',
+                    'covers: <<meta_links("covers", incoming=False)>>'
+                ],
+                'footer': ['<<image("{{image}}")>>'],
+            }
+        }
+    }
 
     # override the default regular expression for SCADE Suite OIDs
     needs_id_regex = r'^[A-Za-z0-9_!/]{5,}'
@@ -46,6 +81,11 @@ Example of sphinx-needs configuration (``conf.py``)::
     # export the needs to a json file, to be imported by the connector
     needs_build_json = True
 
+    ...
+
+The ``scade-suite`` layout produces the following output:
+
+.. image:: /_static/llr.png
 
 Declaration
 -----------
@@ -96,6 +136,7 @@ the project. It is located in the ``Scripts`` folder of the Python installation 
    usage: setup_ansys_scade_almgw_sphinx_needs [-h] [-p <project>] [-u <upstream>]
                                                [-d <downstream>] [-l <link>] [-v <version>]
                                                [-s <schema>] [-o <output>] [-i [<inputs> ...]]
+                                               [-g]
 
    options:
      -h, --help            show this help message and exit
@@ -115,6 +156,7 @@ the project. It is located in the ``Scripts`` folder of the Python installation 
                            export document
      -i [<inputs> ...], --inputs [<inputs> ...]
                            requirements documents
+     -g, --graphics        export diagrams
 
 For example:
 
@@ -146,3 +188,4 @@ The connector does not export diagrams and equation sets.
 .. _needs_build_json: https://sphinx-needs.readthedocs.io/en/latest/configuration.html#needs-build-json
 .. _needimport: https://sphinx-needs.readthedocs.io/en/latest/directives/needimport.html#needimport
 .. _Traceable Elements Export Schema: https://pyalmgw.scade.docs.pyansys.com/version/stable/usage/schema.html
+.. _build configuration: https://sphinx-needs.readthedocs.io/en/latest/configuration.html#configuration
