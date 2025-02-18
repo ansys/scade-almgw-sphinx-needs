@@ -4,3 +4,4 @@ Model/*.almgr
 Model/*.reqs
 Model/links.json
 Model/*.llrs
+Model/llr_img

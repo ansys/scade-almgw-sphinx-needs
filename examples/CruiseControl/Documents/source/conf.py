@@ -58,13 +58,13 @@ needs_types = [
     {
         'directive': 'hlr',
         'title': 'REQ',
-        'prefix': '',  # prefix for auto-generated IDs
+        'prefix': '',
     },
     # low level requirement
     {
         'directive': 'llr',
         'title': 'SC',
-        'prefix': '',  # prefix for auto-generated IDs
+        'prefix': '',
     },
 ]
 
@@ -77,8 +77,36 @@ needs_extra_links = [
     },
 ]
 
-# corresponds to the annotation DesignElement
-needs_extra_options = ['Nature']
+needs_extra_options = [
+    # mandatory: icon of the element
+    'icon',
+    # when export graphics is selected: image of the element
+    'image',
+    # field 'Nature' of the DesignElement annotation
+    'Nature',
+]
+
+# define a custom layout to
+# * add the icon
+# * hide the id that
+# * insert the diagram or equation sets in the footer
+needs_layouts = {
+    'scade-suite': {
+        'grid': 'simple_footer',
+        'layout': {
+            'head': [
+                '<<meta("type_name")>>: <<image("{{icon}}")>> '
+                '**<<meta("title")>>**>> '
+                '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle")>>'
+            ],
+            'meta': [
+                '<<meta_all(exclude=["icon", "image", "layout"], no_links=True)>>',
+                'covers: <<meta_links("covers", incoming=False)>>',
+            ],
+            'footer': ['<<image("{{image}}")>>'],
+        },
+    }
+}
 
 # override the default regular expression for SCADE Suite OIDs
 needs_id_regex = r'^[A-Za-z0-9_!/]{5,}'

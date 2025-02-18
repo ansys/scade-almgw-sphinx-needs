@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="551" defaultConfiguration="16">
+<Project id="1" oid_count="554" defaultConfiguration="16">
 	<props>
 		<Prop id="9" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -940,6 +940,9 @@
 		</Prop>
 		<Prop id="551" name="@SPHINX_NEEDS:LINK_TYPE">
 			<value>covers</value>
+		</Prop>
+		<Prop id="554" name="@ALMGW:DIAGRAMS">
+			<value>true</value>
 		</Prop>
 	</props>
 	<roots>
