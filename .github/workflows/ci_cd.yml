@@ -80,13 +80,12 @@ jobs:
           checkout: false
           scade-version: ${{ matrix.scade-version }}
 
-      # ci fails with codecov/codecov-action@v5 if the repo si not public
-      # - name: "Upload coverage reports to Codecov"
-      #   uses: codecov/codecov-action@v5
-      #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
-      #     slug: ansys-internal/scade-almgw-sphinx-needs
-      #     files: .cov/xml
+      - name: "Upload coverage reports to Codecov"
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ansys-internal/scade-almgw-sphinx-needs
+          files: .cov/xml
 
   doc-build:
     name: "Build documentation"
@@ -98,18 +97,18 @@ jobs:
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
-      # - name: "Zipping the examples directory"
-      #   run: |
-      #     sudo apt-get install zip
-      #     zip -r examples.zip ./examples
-#
-      # - name: "Upload zip to artifacts"
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: examples
-      #     path: ./examples.zip
-      #     retention-days: 7
-      #     if-no-files-found: error
+      - name: "Zipping the examples directory"
+        run: |
+          sudo apt-get install zip
+          zip -r examples.zip ./examples
+
+      - name: "Upload zip to artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          name: examples
+          path: ./examples.zip
+          retention-days: 7
+          if-no-files-found: error
 
   build-library:
     name: "Build library basic example"
@@ -163,7 +162,7 @@ jobs:
         uses: ansys/actions/release-github@v8
         with:
           library-name: ${{ env.LIBRARY_NAME }}
-          # additional-artifacts: 'examples'
+          additional-artifacts: 'examples'
 
   doc-deploy-dev:
     name: "Deploy development documentation"
