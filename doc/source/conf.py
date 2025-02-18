@@ -54,11 +54,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinx_design',
     # 'ansys_sphinx_theme.extension.autoapi',
-    'sphinx.ext.autosectionlabel',
 ]
-
-# Make sure the target is unique
-autosectionlabel_prefix_document = True
 
 # dependencies might not be found when building the documentation
 suppress_warnings = ['autoapi.python_import_resolution']
