@@ -9,6 +9,14 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.1.1 <https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases/tag/v0.1.1>`_ - 2025-02-18
+======================================================================================================
+
+Added
+^^^^^
+
+- feat: Add an option to export graphics `#5 <https://github.com/ansys-internal/scade-almgw-sphinx-needs/pull/5>`_
+
 `0.1.0 <https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases/tag/v0.1.0>`_ - 2025-02-18
 ======================================================================================================
 
