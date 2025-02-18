@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="9" defaultConfiguration="2">
+<Project id="1" oid_count="10" defaultConfiguration="2">
 	<props>
 		<Prop id="3" name="@SPHINX_NEEDS:IMPORT_DOCUMENTS">
 			<value>a</value>
@@ -22,6 +22,9 @@
 		</Prop>
 		<Prop id="9" name="@SPHINX_NEEDS:EXPORT_DOCUMENT">
 			<value>output.json</value>
+		</Prop>
+		<Prop id="10" name="@ALMGW:DIAGRAMS">
+			<value>true</value>
 		</Prop>
 	</props>
 	<configurations>

@@ -41,6 +41,7 @@ class Options:
         self.import_documents = []
         self.export_schema = ''
         self.export_document = None
+        self.graphics = True
 
     def load(self, project: Project):
         """Update the dialog with the project's settings."""
@@ -82,3 +83,5 @@ class Options:
             if path and not path.is_absolute():
                 path = directory.joinpath(path)
             self.export_document = path.resolve()
+
+        self.graphics = project.get_bool_tool_prop_def(pyamlgw.TOOL, 'DIAGRAMS', False, None)

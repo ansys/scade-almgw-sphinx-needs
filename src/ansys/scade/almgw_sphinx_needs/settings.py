@@ -29,7 +29,7 @@ from pathlib import Path
 from scade.model.project.stdproject import Project, get_roots as get_projects
 from scade.tool.suite.gui.commands import Command, Menu
 from scade.tool.suite.gui.dialogs import Dialog, file_open, file_save
-from scade.tool.suite.gui.widgets import Button, EditBox, Label, ListBox, ObjectComboBox
+from scade.tool.suite.gui.widgets import Button, CheckBox, EditBox, Label, ListBox, ObjectComboBox
 
 import ansys.scade.almgw_sphinx_needs as sn
 import ansys.scade.pyalmgw as pyamlgw
@@ -155,7 +155,7 @@ class LabelComboBox(ObjectComboBox):
 w_settings = wd + hm * 2
 # something strange, need to add one level of margin more
 w_settings += 15
-h_settings = 380
+h_settings = 410
 
 
 class Settings(Dialog):
@@ -178,6 +178,7 @@ class Settings(Dialog):
         self.lb_import_documents = None
         self.pb_ok = None
         self.pb_cancel = None
+        self.cb_graphics = None
 
         # runtime
         self.project = None
@@ -240,6 +241,8 @@ class Settings(Dialog):
         self.ed_export_document = self.add_file(
             y, 'E&xport document:', '.json', default_dir, filter, FSM.LOAD
         )
+        y += dy
+        self.cb_graphics = CheckBox(self, 'Export &graphics', x=xf, y=y, w=wf, h=H_BUTTON)
         y += dy
         Label(self, '&Requirements documents:', x=xl, y=y + 4, w=wl, h=H_LABEL)
         y += dy
@@ -362,6 +365,10 @@ class Settings(Dialog):
         self.ed_export_document.set_name(export_document)
         self.ed_export_document.reldir = str(Path(self.project.pathname).parent)
 
+        assert self.cb_graphics
+        graphics = self.project.get_bool_tool_prop_def(pyamlgw.TOOL, 'DIAGRAMS', False, None)
+        self.cb_graphics.set_check(graphics)
+
     def write_settings(self):
         """Update the project's settings from the dialog."""
         assert self.project
@@ -407,6 +414,10 @@ class Settings(Dialog):
         self.project.set_scalar_tool_prop_def(
             sn.TOOL, sn.EXPORT_DOCUMENT, export_document, sn.EXPORT_DOCUMENT_DEFAULT, None
         )
+
+        assert self.cb_graphics
+        graphics = self.cb_graphics.get_check()
+        self.project.set_bool_tool_prop_def(pyamlgw.TOOL, 'DIAGRAMS', graphics, False, None)
 
 
 # ---------------------------------------------------------------------------
