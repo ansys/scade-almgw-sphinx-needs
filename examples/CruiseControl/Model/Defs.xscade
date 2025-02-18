@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Package name="Defs">
+			<declarations>
+				<Constant name="ZERO_SPEED">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Speed"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/E06A/4D8A/7C0/46A0A799/18A3"/>
+					</pragmas>
+				</Constant>
+				<Constant name="ZERO_PERCENT">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Percent"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/8009/1D6/4D8/46A0E7CF/11DC"/>
+					</pragmas>
+				</Constant>
+				<Constant name="SPEED_MIN">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Speed"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="30.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/E04C/4D8A/7C0/46A0A795/2C38"/>
+					</pragmas>
+				</Constant>
+				<Constant name="SPEED_MAX">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Speed"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="150.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="win_1CC8/3726/578/3C3C6C0B/76D8"/>
+					</pragmas>
+				</Constant>
+				<Constant name="SPEED_INC">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Speed"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="2.5"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/E02F/4D8A/7C0/46A0A78D/3D58"/>
+					</pragmas>
+				</Constant>
+				<Constant name="THROTTLE_SAT_MAX">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Percent"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="100.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="win_124C/58BC/548/41BD9617/37A"/>
+					</pragmas>
+				</Constant>
+				<Constant name="PEDALS_MIN">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="Percent"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="3.0"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/E05B/4D8A/7C0/46A0A797/5468"/>
+					</pragmas>
+				</Constant>
+				<Constant name="KP">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="float32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="8.113"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="win_1D84/31CB/578/3C3C74B4/5733"/>
+					</pragmas>
+				</Constant>
+				<Constant name="KI">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="float32"/>
+							</type>
+						</NamedType>
+					</type>
+					<value>
+						<ConstValue value="0.5"/>
+					</value>
+					<pragmas>
+						<ed:Constant oid="!ed/E0AE/4D8A/7C0/46A0A7A8/471"/>
+					</pragmas>
+				</Constant>
+				<Type name="CruiseState">
+					<definition>
+						<Enum>
+							<values>
+								<Value name="OFF">
+									<pragmas>
+										<ed:Value oid="!ed/717D/1D6/4D8/46A0B8D0/2E5A"/>
+									</pragmas>
+								</Value>
+								<Value name="INT">
+									<pragmas>
+										<ed:Value oid="!ed/eef0/6D0D/2660/582899eb499e"/>
+									</pragmas>
+								</Value>
+								<Value name="STDBY">
+									<pragmas>
+										<ed:Value oid="!ed/ef3c/6D0D/2660/58289b15966"/>
+									</pragmas>
+								</Value>
+								<Value name="ON">
+									<pragmas>
+										<ed:Value oid="!ed/ef3d/6D0D/2660/58289b1e4433"/>
+									</pragmas>
+								</Value>
+							</values>
+							<pragmas>
+								<ed:Enum oid="!ed/7132/1D6/4D8/46A0B81F/664D"/>
+							</pragmas>
+						</Enum>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/7131/1D6/4D8/46A0B80F/13C9"/>
+					</pragmas>
+				</Type>
+				<Type name="Percent">
+					<definition>
+						<NamedType>
+							<type>
+								<TypeRef name="float32"/>
+							</type>
+						</NamedType>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/1e41d/87D/2750/5828a43412ed"/>
+					</pragmas>
+				</Type>
+				<Type name="Speed">
+					<definition>
+						<NamedType>
+							<type>
+								<TypeRef name="float32"/>
+							</type>
+						</NamedType>
+					</definition>
+					<pragmas>
+						<ed:Type oid="!ed/41967/87D/2750/5828a5635ad3"/>
+					</pragmas>
+				</Type>
+			</declarations>
+			<pragmas>
+				<ed:Package oid="!ed/9ea2/29FC/3480/5821bdaa78ce" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/9ea3/29FC/3480/5821bdaad9c" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/9ea4/29FC/3480/5821bdaa3564" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/9ea5/29FC/3480/5821bdaa58a7" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

@@ -1,0 +1,54 @@
+{
+    "created": "2025-02-17T13:14:32.618349",
+    "current_version": "",
+    "project": "NoCache",
+    "versions": {
+        "": {
+            "created": "2025-02-17T13:14:32.618349",
+            "creator": {
+                "program": "ansys.scade.almgw_sphinx_needs",
+                "version": "$(VERSION)"
+            },
+            "needs": {
+                "!ed/91/7A8D/4DD0/6745dacb615b": {
+                    "id": "!ed/91/7A8D/4DD0/6745dacb615b",
+                    "type": "llr",
+                    "title": "Usefulness?",
+                    "content": "equationSet P::Delay/Delay/Usefulness?/",
+                    "links": [],
+                    "sections": [
+                        "NoCache",
+                        "Operator Delay"
+                    ],
+                    "section_name": "Operator Delay"
+                },
+                "!ed/4b/7A8D/4DD0/6745d1e16091": {
+                    "id": "!ed/4b/7A8D/4DD0/6745d1e16091",
+                    "type": "llr",
+                    "title": "Rather simple",
+                    "content": "equationSet P::Root/Root/Rather simple/",
+                    "Category": "Low Level Requirement",
+                    "links": [],
+                    "sections": [
+                        "NoCache",
+                        "Operator Root"
+                    ],
+                    "section_name": "Operator Root"
+                },
+                "!ed/b5/BBF/3518/674831dd44f3": {
+                    "id": "!ed/b5/BBF/3518/674831dd44f3",
+                    "type": "llr",
+                    "title": "Unused neither traced",
+                    "content": "equationSet P::Root/Root/Unused neither traced/",
+                    "Category": "Derived Low Level Requirement",
+                    "links": [],
+                    "sections": [
+                        "NoCache",
+                        "Operator Root"
+                    ],
+                    "section_name": "Operator Root"
+                }
+            }
+        }
+    }
+}

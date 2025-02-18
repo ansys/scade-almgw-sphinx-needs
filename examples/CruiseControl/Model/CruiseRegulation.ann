@@ -1,0 +1,67 @@
+Notes-Types { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    DesignElement ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        information {
+            Nature ENUM
+            {
+            	 NT_ENUM_VALUES {"Low Level Requirement", "Architecture", "Derived Low Level Requirement"},
+            	 NT_DEFAULT_VALUE "Low Level Requirement" ,
+            	 NT_FIELD_WIDTH 20 ,
+            	 LLR_PROP "Nature" },
+            Description TEXT
+            {
+            	 NT_FIELD_HEIGHT 20 ,
+            	 NT_FIELD_WIDTH 60 }
+    } } }
+
+    TextInFrame ::= SEQUENCE OF { SEQUENCE {
+    annot_object OID,
+    name STRING,
+        note_graphical_information {
+            NT_INCRUSTABLE BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_PERMANENT BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_MODIFY BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_LOCATION STRING
+            {
+            	 NT_DEFAULT_VALUE "RELATIVE" },
+            NT_FONT INTEGER
+            {
+            	 NT_DEFAULT_VALUE 2 },
+            NT_FRAME BOOLEAN
+            {
+            	 NT_DEFAULT_VALUE T },
+            NT_POS_X REAL
+            {
+            	 NT_DEFAULT_VALUE -1 },
+            NT_POS_Y REAL
+            {
+            	 NT_DEFAULT_VALUE -1 }
+        },
+        information {
+            Text TEXT
+            {
+            	 NT_INCRUSTABLE T }
+    } } }
+
+END
+
+Notes-Values { Esterel-Technologies }  DEFINITIONS ::=
+BEGIN
+    DesignElement ::= {
+        {"!ed/10e89/79DD/245C/627be35029e6", "DesignElement_1","Low Level Requirement" , "" },
+        {"!ed/110a1/79DD/245C/627be4de46d9", "DesignElement_1","Low Level Requirement" , "" },
+        {"!ed/110a2/79DD/245C/627be537244f", "DesignElement_1","Low Level Requirement" , "" }}
+    TextInFrame ::= {
+        {"!ed/BD37/4D8A/7C0/46A08B17/7B3A", "TextInFrame_1",T , T , T , "RELATIVE" , 2 , T , 18.740157 , 387.519685 , "The speed regulator is a Proportional / Integral regulator.
+The integral action is hold when the throttle command is saturated.
+The throttle command is saturated to limit the acceleration." }}
+END
+

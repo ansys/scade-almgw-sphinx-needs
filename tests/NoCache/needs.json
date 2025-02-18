@@ -1,0 +1,94 @@
+{
+    "created": "2025-02-17T09:59:28.919472",
+    "current_version": "",
+    "project": "Needs",
+    "versions": {
+        "": {
+            "created": "2025-02-17T09:59:28.919472",
+            "creator": {
+                "program": "sphinx_needs",
+                "version": "4.2.0"
+            },
+            "needs": {
+                "REQ_00": {
+                    "content": "Not in a section.",
+                    "docname": "index",
+                    "external_css": "external_link",
+                    "full_title": "Extra Requirement",
+                    "id": "REQ_00",
+                    "layout": "",
+                    "lineno": 1,
+                    "title": "Extra Requirement",
+                    "type": "hlr",
+                    "type_name": "REQ"
+                },
+                "REQ_01": {
+                    "content": "Bla.",
+                    "docname": "index",
+                    "external_css": "external_link",
+                    "full_title": "High Level Requirement",
+                    "id": "REQ_01",
+                    "layout": "",
+                    "lineno": 10,
+                    "section_name": "Needs",
+                    "sections": [
+                        "Needs"
+                    ],
+                    "title": "High Level Requirement",
+                    "type": "hlr",
+                    "type_name": "REQ"
+                },
+                "REQ_02": {
+                    "content": "Not a HLR.",
+                    "docname": "index",
+                    "external_css": "external_link",
+                    "full_title": "Other requirement",
+                    "id": "REQ_02",
+                    "layout": "",
+                    "lineno": 15,
+                    "section_name": "Needs",
+                    "sections": [
+                        "Needs"
+                    ],
+                    "title": "Other requirement",
+                    "type": "misc",
+                    "type_name": "MISC"
+                },
+                "REQ_03": {
+                    "content": "Bla paragraph 1.\n\nBla paragraph 2.",
+                    "docname": "index",
+                    "external_css": "external_link",
+                    "full_title": "Two paragraphs",
+                    "id": "REQ_03",
+                    "layout": "",
+                    "lineno": 20,
+                    "section_name": "Needs",
+                    "sections": [
+                        "Needs"
+                    ],
+                    "title": "Two paragraphs",
+                    "type": "hlr",
+                    "type_name": "REQ"
+                },
+                "REQ_04": {
+                    "content": "Bla ``bla``  `bla`.",
+                    "docname": "index",
+                    "external_css": "external_link",
+                    "full_title": "Back ticks",
+                    "id": "REQ_04",
+                    "layout": "",
+                    "lineno": 27,
+                    "section_name": "Needs",
+                    "sections": [
+                        "Needs"
+                    ],
+                    "title": "Back ticks",
+                    "type": "hlr",
+                    "type_name": "REQ"
+                }
+            },
+            "needs_amount": 5,
+            "needs_defaults_removed": true
+        }
+    }
+}

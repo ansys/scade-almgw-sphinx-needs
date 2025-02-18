@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project id="1" oid_count="9" defaultConfiguration="2">
+	<props>
+		<Prop id="3" name="@SPHINX_NEEDS:IMPORT_DOCUMENTS">
+			<value>a</value>
+			<value>B/c.json</value>
+		</Prop>
+		<Prop id="4" name="@SPHINX_NEEDS:UPSTREAM_TYPE">
+			<value>hlr</value>
+		</Prop>
+		<Prop id="5" name="@SPHINX_NEEDS:DOWNSTREAM_TYPE">
+			<value>llr</value>
+		</Prop>
+		<Prop id="6" name="@SPHINX_NEEDS:LINK_TYPE">
+			<value>covers</value>
+		</Prop>
+		<Prop id="7" name="@SPHINX_NEEDS:VERSION">
+			<value>0.9</value>
+		</Prop>
+		<Prop id="8" name="@ALMGW:LLRSCHEMA">
+			<value>c:/schema.json</value>
+		</Prop>
+		<Prop id="9" name="@SPHINX_NEEDS:EXPORT_DOCUMENT">
+			<value>output.json</value>
+		</Prop>
+	</props>
+	<configurations>
+		<Configuration id="2" name="Default"/>
+	</configurations>
+</Project>

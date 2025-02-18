@@ -1,0 +1,6 @@
+[Studio/Work Interfaces/SPHINX_NEEDS]
+"Version"="24200"
+"Pathname"="ETCUST.DLL"
+
+[Custom/Studio/Extensions/SPHINX_NEEDS]
+"Package"="ansys.scade.almgw_sphinx_needs.settings"

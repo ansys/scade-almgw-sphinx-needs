@@ -1,0 +1,12 @@
+ANSYS
+Ansys
+ansys
+Ansys SCADE ALM Gateway connector for sphinx-needs
+scade
+Scade
+SCADE
+fullname
+isort
+pytest
+needs_build_json
+needimport

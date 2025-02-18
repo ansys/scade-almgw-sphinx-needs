@@ -1,0 +1,8 @@
+<ReqProject xmlns="http://www.esterel-technologies.com/scade/lifecycle/almgateway/scade_req/1" identifier="" text="">
+  <traceabilityLinks/>
+  <documents>
+    <Document identifier="$(DIR)/needs.json" text="Needs">
+      <children/>
+    </Document>
+  </documents>
+</ReqProject>

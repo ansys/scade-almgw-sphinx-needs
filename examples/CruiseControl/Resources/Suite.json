@@ -1,0 +1,236 @@
+[
+    {
+        "class": "Model",
+        "parent": "Package",
+        "isllr": false
+    },
+    {
+        "class": "Package",
+        "folder": "Package",
+        "isllr": false,
+        "structure": [
+            {
+                "folder": "Operators",
+                "flags": [ "sort" ],
+                "content": [
+                    {
+                        "role": "operator",
+                        "kind": ""
+                    }
+                ]
+            },
+            {
+                "flags": [ "sort" ],
+                "content": [
+                    {
+                        "role": "package",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "DataDef",
+        "folder": "n/a",
+        "isllr": false,
+        "structure": [
+            {
+                "flags": [ "sort" ],
+                "content": [
+                    {
+                        "role": "stateMachine",
+                        "kind": ""
+                    },
+                    {
+                        "role": "activateBlock",
+                        "kind": "block"
+                    }
+                ]
+            },
+            {
+                "flags": [ "sort" ],
+                "content": [
+                    {
+                        "role": "diagram{TextDiagram}",
+                        "kind": "diagram"
+                    },
+                    {
+                        "role": "diagram{NetDiagram}.equationSet",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "NetDiagram",
+        "isllr": false,
+        "structure": [
+            {
+                "flags": [ "sibling", "sort" ],
+                "content": [
+                    {
+                        "role": "equationSet",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Operator",
+        "parent": "DataDef",
+        "folder": "Operator",
+        "isllr": false
+    },
+    {
+        "class": "StateMachine",
+        "folder": "State Machine",
+        "isllr": false,
+        "structure": [
+            {
+                "flags": [ "sort" ],
+                "content": [
+                    {
+                        "role": "state",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "WhenBlock",
+        "folder": "When Block",
+        "isllr": false,
+        "structure": [
+            {
+                "content": [
+                    {
+                        "role": "whenBranch",
+                        "kind": "branch"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "WhenBranch",
+        "folder": "Branch",
+        "isllr": false,
+        "structure": [
+            {
+                "content": [
+                    {
+                        "role": "action",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "IfBlock",
+        "folder": "If Block",
+        "isllr": false,
+        "structure": [
+            {
+                "content": [
+                    {
+                        "role": "ifNode",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "IfNode",
+        "parent": "IfBranch",
+        "isllr": false,
+        "structure": [
+            {
+                "content": [
+                    {
+                        "role": "then",
+                        "kind": "branch"
+                    },
+                    {
+                        "role": "else",
+                        "kind": "branch"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "IfBranch",
+        "folder": "n/a",
+        "isllr": false
+    },
+    {
+        "class": "IfAction",
+        "parent": "IfBranch",
+        "isllr": false,
+        "structure": [
+            {
+                "content": [
+                    {
+                        "role": "action",
+                        "kind": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Action",
+        "parent": "DataDef",
+        "isllr": false
+    },
+    {
+        "class": "State",
+        "parent": "DataDef",
+        "folder": "State",
+        "isllr": true,
+        "structure": [
+            {
+                "folder": "Transitions",
+                "flags": [ "sibling" ],
+                "content": [
+                    {
+                        "role": "outgoing",
+                        "kind": "transition"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "Transition",
+        "folder": "n/a",
+        "isllr": false,
+        "structure": [
+            {
+                "flags": [ "sibling" ],
+                "content": [
+                    {
+                        "role": "forkedTransition",
+                        "kind": "transition"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "class": "MainTransition",
+        "parent": "Transition",
+        "isllr": true
+    },
+    {
+        "class": "ForkedTransition",
+        "parent": "Transition",
+        "isllr": true
+    }
+]

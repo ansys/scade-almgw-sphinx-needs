@@ -1,0 +1,8 @@
+body {
+    --sn-color-need-bg: var(--md-default-bg-color);
+    --sn-color-need-border: var(--md-typeset-table-color);
+    --sn-color-need-row-border: var(--md-typeset-table-color);
+    --sn-color-debug-btn-border: var(--md-typeset-color);
+    --sn-color-datatable-label: var(--md-typeset-color);
+    --sn-color-datatable-btn-border: var(--md-default-fg-color--light);
+}
