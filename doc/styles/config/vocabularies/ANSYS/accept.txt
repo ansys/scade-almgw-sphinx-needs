@@ -8,3 +8,5 @@ SCADE
 fullname
 isort
 pytest
+needs_build_json
+needimport

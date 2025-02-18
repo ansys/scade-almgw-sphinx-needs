@@ -4,11 +4,48 @@ User Guide
 Workflow
 --------
 
-The connector imports the requirements from the needs file produced by the built process.
+The connector imports the requirements from the needs file produced by the build process.
 Refer to `needs_build_json`_ for details.
 
-The connector exports the SCADE needs to a json file that can be imported with
+The connector exports the SCADE needs to a file (JSON) that can be imported with
 the directive `needimport`_.
+
+Example of sphinx-needs configuration (``conf.py``)::
+
+    # sphinx-needs configuration
+    needs_types = [
+        # high level requirement
+        {
+            'directive': 'hlr',
+            'title': 'REQ',
+            'prefix': '',
+        },
+        # low level requirement
+        {
+            'directive': 'llr',
+            'title': 'SC',
+            'prefix': '',
+        },
+    ]
+
+    # traceability link produced by the connector
+    needs_extra_links = [
+        {
+            'option': 'covers',
+            'incoming': 'is covered by',
+            'outgoing': 'covers',
+        },
+    ]
+
+    # corresponds to the annotation DesignElement
+    needs_extra_options = ['Nature']
+
+    # override the default regular expression for SCADE Suite OIDs
+    needs_id_regex = r'^[A-Za-z0-9_!/]{5,}'
+
+    # export the needs to a json file, to be imported by the connector
+    needs_build_json = True
+
 
 Declaration
 -----------

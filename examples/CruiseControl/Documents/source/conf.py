@@ -54,22 +54,21 @@ master_doc = 'index'
 
 # sphinx-needs configuration
 needs_types = [
+    # high level requirement
     {
         'directive': 'hlr',
         'title': 'REQ',
-        'style': 'rectangle',  # style for the type in diagrams
-        'color': '#BFD8D2',  # color for the type in diagrams
         'prefix': '',  # prefix for auto-generated IDs
     },
+    # low level requirement
     {
         'directive': 'llr',
         'title': 'SC',
-        'style': 'rectangle',  # style for the type in diagrams
-        'color': '#BFD8D2',  # color for the type in diagrams
         'prefix': '',  # prefix for auto-generated IDs
     },
 ]
 
+# traceability link produced by the connector
 needs_extra_links = [
     {
         'option': 'covers',
@@ -78,10 +77,14 @@ needs_extra_links = [
     },
 ]
 
+# corresponds to the annotation DesignElement
 needs_extra_options = ['Nature']
 
+# override the default regular expression for SCADE Suite OIDs
 needs_id_regex = r'^[A-Za-z0-9_!/]{5,}'
 
+# export the needs to a json file, to be imported by the connector
 needs_build_json = True
 
+# reduce the size of the file
 needs_json_remove_defaults = True
