@@ -1,0 +1,14 @@
+**{{scade_type}}**: `{{scade_path}} <{{scade_url}}>`_
+
+**Nature**: {{Nature}}
+
+{% if image != "<null>" %}
+.. image:: {{image}}
+  :alt: {{title}}
+{%- endif %}
+
+Covers:
+{% for link in covers %}
+{# :need:`{{link}} <{{link}}>`: :ndf:`copy('title', '{{link}}')` #}
+| **{{link}}**: :ndf:`copy('title', '{{link}}')`
+{%- endfor %}
