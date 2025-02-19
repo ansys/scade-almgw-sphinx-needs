@@ -10,6 +10,23 @@ Refer to `needs_build_json`_ for details.
 The connector exports the SCADE needs to a file (JSON) that can be imported with
 the directive `needimport`_.
 
+It provides the following built-in fields:
+
+* ``id``: OID of the need
+* ``title``: name of the need
+* ``type``: downstream type specified in the settings
+
+It also provides the following extra options that must be declared
+in the `build configuration`_ (``conf.py``):
+
+* ``image``: path of the image file otherwise ``<null>``
+* ``scade_type``: kind of the need: ``EquationSet``, ``State``, ``Record``, etc.
+* ``scade_path``: path of the need.
+* ``scade_url``: URL to locate the need in the SCADE IDE.
+* ``scade_icon``: icon associated to the need.
+
+These options can be used in custom layouts or templates.
+
 Configuration
 -------------
 
@@ -45,8 +62,11 @@ Example of sphinx-needs configuration (``conf.py``)::
     ]
 
     needs_extra_options = [
-        # mandatory: icon of the element
-        'icon',
+        # mandatory connector options
+        'scade_path',
+        'scade_type',
+        'scade_url',
+        'scade_icon',
         # when export graphics is selected: image of the element
         'image',
         # field 'Nature' of the DesignElement annotation
@@ -55,23 +75,21 @@ Example of sphinx-needs configuration (``conf.py``)::
 
     # define a custom layout to
     # * add the icon
-    # * hide the id that
-    # * insert the diagram or equation sets in the footer
+    # * hide the id
     needs_layouts = {
         'scade-suite': {
-            'grid': 'simple_footer',
+            'grid': 'simple',
             'layout': {
                 'head': [
-                    '<<meta("type_name")>>: <<image("{{icon}}")>> '
+                    '<<meta("type_name")>>: <<image("{{scade_icon}}")>> '
                     '**<<meta("title")>>**>> '
-                    '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle")>>'
+                    '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle", initial=True)>>'
                 ],
                 'meta': [
-                    '<<meta_all(exclude=["icon", "image", "layout"], no_links=True)>>',
-                    'covers: <<meta_links("covers", incoming=False)>>'
+                    '<<meta_all(exclude=["scade_icon", "image", "layout"], no_links=True)>>',
+                    'covers: <<meta_links("covers", incoming=False)>>',
                 ],
-                'footer': ['<<image("{{image}}")>>'],
-            }
+            },
         }
     }
 
@@ -81,9 +99,39 @@ Example of sphinx-needs configuration (``conf.py``)::
     # export the needs to a json file, to be imported by the connector
     needs_build_json = True
 
+    # reduce the size of the file
+    needs_json_remove_defaults = True
+
     ...
 
-The ``scade-suite`` layout produces the following output:
+Example of template (``llr.need``):
+
+.. code-block:: jinja
+
+   **{{scade_type}}**: `{{scade_path}} <{{scade_url}}>`_
+
+   **Nature**: {{Nature}}
+
+   {% if image != "<null>" %}
+   .. image:: {{image}}
+   :alt: {{title}}
+   {%- endif %}
+
+   Covers:
+   {% for link in covers %}
+   {# :need:`{{link}} <{{link}}>`: :ndf:`copy('title', '{{link}}')` #}
+   | **{{link}}**: :ndf:`copy('title', '{{link}}')`
+   {%- endfor %}
+
+
+You can import the SCADE needs using the custom ``scade-suite`` layout
+and ``llr`` template to render needs as follows:
+
+.. code-block:: rst
+
+   .. needimport:: /_scade/model.json
+       :layout: scade-suite
+       :template: llr
 
 .. image:: /_static/llr.png
 
