@@ -78,8 +78,11 @@ needs_extra_links = [
 ]
 
 needs_extra_options = [
-    # mandatory: icon of the element
-    'icon',
+    # mandatory connector options
+    'scade_path',
+    'scade_type',
+    'scade_url',
+    'scade_icon',
     # when export graphics is selected: image of the element
     'image',
     # field 'Nature' of the DesignElement annotation
@@ -88,22 +91,20 @@ needs_extra_options = [
 
 # define a custom layout to
 # * add the icon
-# * hide the id that
-# * insert the diagram or equation sets in the footer
+# * hide the id
 needs_layouts = {
     'scade-suite': {
-        'grid': 'simple_footer',
+        'grid': 'simple',
         'layout': {
             'head': [
-                '<<meta("type_name")>>: <<image("{{icon}}")>> '
+                '<<meta("type_name")>>: <<image("{{scade_icon}}")>> '
                 '**<<meta("title")>>**>> '
-                '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle")>>'
+                '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle", initial=True)>>'
             ],
             'meta': [
-                '<<meta_all(exclude=["icon", "image", "layout"], no_links=True)>>',
+                '<<meta_all(exclude=["scade_icon", "image", "layout"], no_links=True)>>',
                 'covers: <<meta_links("covers", incoming=False)>>',
             ],
-            'footer': ['<<image("{{image}}")>>'],
         },
     }
 }
