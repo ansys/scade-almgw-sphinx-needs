@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="ansys-scade-almgw-sphinx-needs"
-version="0.1.2"
+version="0.1.3"
 description ="{{Description}}."
 readme="README.rst"
 
