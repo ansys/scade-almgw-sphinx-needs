@@ -72,7 +72,7 @@ exe = "ansys.scade.almgw_sphinx_needs:exe"
 source = "https://github.com/ansys-internal/scade-almgw-sphinx-needs"
 issues = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/issues"
 discussions = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/discussions"
-documentation = "https://sphinx-needs.scade.docs.pyansys.com"
+documentation = "https://almgw-sphinx-needs.scade.docs.pyansys.com"
 releases = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 

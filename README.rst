@@ -35,7 +35,7 @@ Ansys SCADE ALM Gateway connector for sphinx-needs
    :alt: Ruff
 
 .. |doc| image:: https://img.shields.io/badge/docs-almgw--sphinx--needs-green.svg?style=flat
-   :target: https://sphinx-needs.scade.docs.pyansys.com
+   :target: https://almgw-sphinx-needs.scade.docs.pyansys.com
    :alt: Doc
 
 
@@ -53,13 +53,13 @@ Ansys SCADE, starting from 2021 R2:
 * 2023 R2 and later: Python 3.10
 
 Ansys SCADE ALM Gateway connector for sphinx-needs has two installation modes: user and developer. To install for use,
-see `Getting started <https://sphinx-needs.scade.docs.pyansys.com/version/stable/getting-started/index.html>`_.
-To install for development, see `Contribute <https://sphinx-needs.scade.docs.pyansys.com/version/stable/contributing.html>`_.
+see `Getting started <https://almgw-sphinx-needs.scade.docs.pyansys.com/version/stable/getting-started/index.html>`_.
+To install for development, see `Contribute <https://almgw-sphinx-needs.scade.docs.pyansys.com/version/stable/contributing.html>`_.
 
 Documentation and issues
 ------------------------
 Documentation for the latest stable release of Ansys SCADE ALM Gateway connector for sphinx-needs is hosted at
-`Ansys SCADE ALM Gateway connector for sphinx-needs documentation <https://sphinx-needs.scade.docs.pyansys.com/>`_.
+`Ansys SCADE ALM Gateway connector for sphinx-needs documentation <https://almgw-sphinx-needs.scade.docs.pyansys.com/>`_.
 
 In the upper right corner of the documentation's title bar, there is an option for
 switching from viewing the documentation for the latest stable release to viewing the
