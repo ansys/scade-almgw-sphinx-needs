@@ -81,7 +81,7 @@ numpydoc_validate = True
 numpydoc_validation_checks = {
     'GL06',  # Found unknown section
     'GL07',  # Sections are in the wrong order.
-    # Disabled the docstring validation as most of the methods doesn't have the docstring
+    # Disabled the docstring validation as most of the methods do not have the docstring
     # TODO: Add docstring and enable GL08 validation
     # "GL08",  # The object does not have a docstring
     'GL09',  # Deprecation warning should precede extended summary

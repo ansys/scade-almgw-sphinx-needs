@@ -156,7 +156,7 @@ Using the Graphical User Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This mode applies only to projects that can be loaded with SCADE Studio.
-SCADE Display projects must be setup using the command line interface,
+SCADE Display projects must be setup using the command-line interface,
 as explained in the next section.
 
 Use the new command ``Project/ALM Gateway/sphinx-needs Settings...`` to:
@@ -173,10 +173,10 @@ Use the new command ``Project/ALM Gateway/sphinx-needs Settings...`` to:
 
 .. image:: /_static/settings.png
 
-Using the Command Line Interface
+Using the Command-Line Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The command line tool python ``setup_ansys_scade_almgw_sphinx_needs.exe`` allows to setup
+The Python command-line tool ``setup_ansys_scade_almgw_sphinx_needs.exe`` allows to setup
 the project. It is located in the ``Scripts`` folder of the Python installation directory.
 
 .. code:: text
