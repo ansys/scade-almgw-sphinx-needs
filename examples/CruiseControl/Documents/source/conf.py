@@ -99,7 +99,8 @@ needs_layouts = {
             'head': [
                 '<<meta("type_name")>>: <<image("{{scade_icon}}")>> '
                 '**<<meta("title")>>**>> '
-                '<<collapse_button("meta", collapsed="icon:arrow-down-circle", visible="icon:arrow-right-circle", initial=True)>>'
+                '<<collapse_button("meta", collapsed="icon:arrow-down-circle", '
+                'visible="icon:arrow-right-circle", initial=True)>>'
             ],
             'meta': [
                 '<<meta_all(exclude=["scade_icon", "image", "layout"], no_links=True)>>',

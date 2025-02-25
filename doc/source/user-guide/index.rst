@@ -1,8 +1,8 @@
 User Guide
-==========
+##########
 
 Workflow
---------
+========
 
 The connector imports the requirements from the needs file produced by the build process.
 Refer to `needs_build_json`_ for details.
@@ -28,7 +28,7 @@ in the `build configuration`_ (``conf.py``):
 These options can be used in custom layouts or templates.
 
 Configuration
--------------
+=============
 
 The connector requires a minimal `build configuration`_ customization, to declare the types and extra options.
 
@@ -136,7 +136,7 @@ and ``llr`` template to render needs as follows:
 .. image:: /_static/llr.png
 
 Declaration
------------
+===========
 
 Use the command ``Project/ALM Gateway/Settings...`` once
 to select the connector ``ALMGW Connector for sphinx-needs``.
@@ -150,10 +150,10 @@ Refer to the next section for details on settings management.
    by deleting the ALM Gateway project file (ALMGP) in the project’s directory.
 
 Settings
---------
+========
 
 Using the Graphical User Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 This mode applies only to projects that can be loaded with SCADE Studio.
 SCADE Display projects must be setup using the command-line interface,
@@ -174,7 +174,7 @@ Use the new command ``Project/ALM Gateway/sphinx-needs Settings...`` to:
 .. image:: /_static/settings.png
 
 Using the Command-Line Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 The Python command-line tool ``setup_ansys_scade_almgw_sphinx_needs.exe`` allows to setup
 the project. It is located in the ``Scripts`` folder of the Python installation directory.
@@ -213,7 +213,7 @@ For example:
    setup_ansys_scade_almgw_sphinx_needs -p MyProject.etp -u ../docs/_build/html/needs.json
 
 Files
------
+=====
 
 Ansys SCADE ALM Gateway connector for sphinx-needs produces several files in the project's directory.
 
@@ -227,7 +227,7 @@ The other files are present for logging or debug purpose only:
 * ``<links.json>``: Copy of exchange file for exporting the traceability.
 
 Limitations
------------
+===========
 
 The connector does not export diagrams and equation sets.
 
