@@ -79,9 +79,10 @@ def exe() -> tuple[str, str]:
     introduced in SCADE 2025 R1. It avoids creating an explicit properties file
     in ``$(SCADE)/SCADE LifeCycle/ALM Gateway/external`` when the package is installed.
     """
-    # the connector is either in Lib/site-packages/ansys-internal/scade/almgw_sphinx_needs
-    #                      or in site-packages/ansys-internal/scade/almgw_sphinx_needs (pip install --user)
-    #                      or in src/ansys-internal/scade/almgw_sphinx_needs (pip install --editable)
+    # the connector is either in:
+    # * Lib/site-packages/ansys-internal/scade/almgw_sphinx_needs (pip install)
+    # * site-packages/ansys-internal/scade/almgw_sphinx_needs (pip install --user)
+    # * src/ansys-internal/scade/almgw_sphinx_needs (pip install --editable)
     site_packages = Path(__file__).parent.parent.parent.parent
     if site_packages.name == 'src':
         # install in user mode, consider the default namings

@@ -124,7 +124,7 @@ class FileSelector(LabelEditBox):
         name = '' if '$' in name else name
         dir = '' if '$' in self.dir else self.dir
         if dir and self.reldir:
-            dir = os.path.join(self.reldir, dir)
+            dir = str(Path(self.reldir) / dir)
         if self.mode == FSM.SAVE:
             pathname = file_save(name, self.extension, dir, self.filter)
         else:
@@ -300,7 +300,7 @@ class Settings(Dialog):
         if path:
             assert self.lb_import_documents
             try:
-                document = os.path.relpath(path, os.path.dirname(self.project.pathname))
+                document = os.path.relpath(path, Path(self.project.pathname).parent)
             except ValueError:
                 document = path
             documents = self.lb_import_documents.get_items()

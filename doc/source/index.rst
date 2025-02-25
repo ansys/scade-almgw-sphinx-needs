@@ -1,5 +1,5 @@
 Ansys SCADE ALM Gateway connector for sphinx-needs
-==================================================
+##################################################
 
 .. grid:: 1 2 3 3
    :gutter: 1 2 3 3
@@ -40,7 +40,7 @@ Ansys SCADE ALM Gateway connector for sphinx-needs
    changelog
 
 Indices and tables
--------------------
+==================
 
 * :ref:`genindex`
 * :ref:`search`

@@ -6,4 +6,4 @@
 
 ## Individual Contributors
 
-* [Jean Henry](https://github.com/ansjhenry)
+* [Abdeljelile Addi](https://github.com/aaddi06)

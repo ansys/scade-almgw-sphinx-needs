@@ -23,8 +23,7 @@
 """
 Registers the ALM GAteway sphinx-needs connector registry files (SRG).
 
-Refer to the :ref:`installation <getting_started/index:install in user mode>`
-steps for more information.
+Refer to the :ref:`installation <install-user-mode>` steps for more information.
 
 It addresses SCADE 2024 R2 and prior releases.
 SCADE 2025 R1 and greater use the package's
