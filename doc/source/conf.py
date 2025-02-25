@@ -22,7 +22,7 @@ html_theme = 'ansys_sphinx_theme'
 html_short_title = html_title = 'Ansys SCADE ALM Gateway connector for sphinx-needs'
 
 # multi-version documentation
-cname = os.getenv('DOCUMENTATION_CNAME', 'sphinx-needs.scade.docs.pyansys.com')
+cname = os.getenv('DOCUMENTATION_CNAME', 'almgw-sphinx-needs.scade.docs.pyansys.com')
 """The canonical name of the webpage hosting the documentation."""
 
 # specify the location of your github repo
