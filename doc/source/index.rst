@@ -39,6 +39,23 @@ Ansys SCADE ALM Gateway connector for sphinx-needs
    contributing
    changelog
 
+
+
+.. jinja:: assets_versions
+
+   .. button-link:: https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases/download/{{ version }}/examples.zip
+    :color: primary
+    :outline: 
+
+      Download the example assets
+
+   .. button-link:: https://sphinxdocs.ansys.com/version/{{ version }}/_static/examples.zip
+      :link:
+      :color: primary
+      :outline:
+
+      Download the example assets (latest version)
+
 Indices and tables
 ==================
 
