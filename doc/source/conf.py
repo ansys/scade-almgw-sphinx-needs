@@ -110,11 +110,8 @@ if switcher_version != 'dev':
         f'https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases/tag/v{__version__}'
     )
 
-
-assets_version = f"__version__" if switcher_version != 'dev' else switcher_version
-
 jinja_contexts = {
-    "assets_versions": {"version": assets_version},
+    "assets_versions": {"version": switcher_version},
 }
 
 def zip_example_folder(app: Sphinx):
