@@ -55,20 +55,19 @@ def _export_to_json(llrs: dict, trace: TraceDocument, options: Options):
         scade_type = scade_type[0].upper() + scade_type[1:]
         scade_path = llr['pathname']
         scade_url = llr['url']
-        icon = llr['icon'] or Path(__file__).parent / 'res' / '_null.png'
+        icon = llr['icon']
+        if not icon:
+            icon = Path(__file__).parent / 'res' / '_null.png'
         image = llr.get('image', '')
-        need = {
-            'id': oid,
-            'type': options.downstream_type,
-            'title': title,
-            'scade_type': scade_type,
-            'scade_path': scade_path,
-            'scade_url': scade_url,
-            'scade_icon': icon.as_posix(),
-            'image': '<null>',
-            # content = f'`{scade_type} {scade_path} <{scade_url}>`_'
-            # need['content'] = content
-        }
+        need = {}
+        need['id'] = oid
+        need['type'] = options.downstream_type
+        need['title'] = title
+        # content = f'`{scade_type} {scade_path} <{scade_url}>`_'
+        # need['content'] = content
+        need['scade_type'] = scade_type
+        need['scade_path'] = scade_path
+        need['scade_url'] = scade_url
         # copy the image to the target directory
         if image:
             src = Path(image)
@@ -76,6 +75,8 @@ def _export_to_json(llrs: dict, trace: TraceDocument, options: Options):
             dst.parent.mkdir(exist_ok=True)
             shutil.copyfile(src, dst)
             need['image'] = dst.as_posix()
+        else:
+            need['image'] = '<null>'
         # copy the icon to the target directory
         src = Path(icon)
         dst = target_dir / '_static' / src.name.replace(' ', '_')
