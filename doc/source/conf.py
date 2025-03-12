@@ -48,21 +48,6 @@ extensions = [
     'sphinx_design',
 ]
 
-# Optionally include api generation.
-BUILD_API = os.environ.get('BUILD_API', 'false') == 'true'
-if BUILD_API:
-    extensions.append('ansys_sphinx_theme.extension.autoapi')
-    html_theme_options['ansys_sphinx_theme_autoapi'] = {
-        'project': project,
-        'own_page_level': 'function',
-        'class_content': 'both',  # documentation in https://sphinxdocs.ansys.com/version/stable/user-guide/autoapi.html
-        'member_order': 'alphabetical',
-    }
-
-# Configuration for Sphinx autoapi
-# dependencies might not be found when building the documentation
-suppress_warnings = ['autoapi.python_import_resolution']
-
 # Intersphinx mapping
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.10', None),
