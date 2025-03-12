@@ -56,11 +56,6 @@ repos:
   hooks:
     - id: numpydoc-validation
 
-- repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.31.3
-  hooks:
-    - id: check-github-workflows
-
 - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
   rev: v1.6.1
   hooks:
