@@ -24,17 +24,18 @@ Ansys SCADE ALM Gateway connector for sphinx-needs
       Learn how to contribute to Ansys SCADE ALM Gateway connector for sphinx-needs.
 
 
-   .. grid-item-card:: :material-regular:`update;1.25em` Changelog
-      :link: changelog
-      :link-type: doc
-
-      View the changelog for Ansys SCADE ALM Gateway connector for sphinx-needs.
-
    .. grid-item-card:: :material-regular:`download;1.25em` Examples
       :link: examples
       :link-type: doc
 
       Download the example assets (latest version)
+
+
+   .. grid-item-card:: :material-regular:`update;1.25em` Changelog
+      :link: changelog
+      :link-type: doc
+
+      View the changelog for Ansys SCADE ALM Gateway connector for sphinx-needs.
 
 .. toctree::
    :maxdepth: 1
@@ -43,8 +44,8 @@ Ansys SCADE ALM Gateway connector for sphinx-needs
    getting-started/index
    user-guide/index
    contributing
-   changelog
    examples
+   changelog
 
 
 Indices and tables
