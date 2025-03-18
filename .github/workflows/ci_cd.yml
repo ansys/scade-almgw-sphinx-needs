@@ -12,7 +12,6 @@ env:
   MAIN_PYTHON_VERSION: '3.10'
   DOCUMENTATION_CNAME: 'almgw-sphinx-needs.scade.docs.pyansys.com'
   LIBRARY_NAME: 'ansys-scade-almgw-sphinx-needs'
-  PIP_EXTRA_INDEX_URL: 'https://${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}@pkgs.dev.azure.com/pyansys/_packaging/pyansys/pypi/simple/'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -145,24 +144,25 @@ jobs:
       contents: write
     steps:
 
-      - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@v8
+      - name: "Download the library artifacts from build-library step"
+        uses: actions/download-artifact@v4
         with:
-          library-name: ${{ env.LIBRARY_NAME }}
-          twine-username: "__token__"
-          twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
+          name: ${{ env.PACKAGE_NAME }}-artifacts
+          path: ${{ env.PACKAGE_NAME }}-artifacts
 
-      # not public yet
-      # - name: "Release to the public PyPI repository"
-      #   uses: ansys/actions/release-pypi-public@v8
-      #   with:
-      #     library-name: ${{ env.LIBRARY_NAME }}
-      #     use-trusted-publisher: true
+      - name: "Upload artifacts to PyPI using trusted publisher"
+        uses: pypa/gh-action-pypi-publish@v1.12.4
+        with:
+          repository-url: "https://upload.pypi.org/legacy/"
+          print-hash: true
+          packages-dir: ${{ env.PACKAGE_NAME }}-artifacts
+          skip-existing: false
 
       - name: "Release to GitHub"
         uses: ansys/actions/release-github@v8
         with:
           library-name: ${{ env.LIBRARY_NAME }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           additional-artifacts: 'examples'
 
   doc-deploy-dev:
