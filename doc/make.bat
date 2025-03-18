@@ -11,6 +11,7 @@ set SOURCEDIR=source
 set BUILDDIR=_build
 
 if "%1" == "" goto help
+if "%1" == "pdf" goto pdf
 if "%1" == "clean" goto clean
 
 %SPHINXBUILD% >NUL 2>NUL
@@ -30,8 +31,13 @@ goto end
 
 :clean
 rmdir /s /q %BUILDDIR% > /NUL 2>&1
-for /d /r %SOURCEDIR% %%d in (api) do @if exist "%%d" rmdir /s /q "%%d"
 goto end
+
+:pdf
+%SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+cd "%BUILDDIR%\latex"
+for %%f in (*.tex) do (
+pdflatex "%%f" --interaction=nonstopmode)
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%

@@ -6,14 +6,14 @@ ci:
 repos:
 
 - repo: https://github.com/ansys/pre-commit-hooks
-  rev: v0.5.1
+  rev: v0.5.2
   hooks:
     - id: add-license-headers
       args:
       - --start_year=2025
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.9.6
+  rev: v0.9.10
   hooks:
     - id: ruff
       args: [--fix]
@@ -46,7 +46,7 @@ repos:
 
 # this validates our github workflow files
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.31.1
+  rev: 0.31.3
   hooks:
     - id: check-github-workflows
 
@@ -55,11 +55,6 @@ repos:
   rev: v1.8.0
   hooks:
     - id: numpydoc-validation
-
-- repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.31.1
-  hooks:
-    - id: check-github-workflows
 
 - repo: https://github.com/pre-commit-ci/pre-commit-ci-config
   rev: v1.6.1
