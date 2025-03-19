@@ -71,11 +71,11 @@ srg = "ansys.scade.almgw_sphinx_needs:srg"
 exe = "ansys.scade.almgw_sphinx_needs:exe"
 
 [project.urls]
-source = "https://github.com/ansys-internal/scade-almgw-sphinx-needs"
-issues = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/issues"
-discussions = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/discussions"
+source = "https://github.com/ansys/scade-almgw-sphinx-needs"
+issues = "https://github.com/ansys/scade-almgw-sphinx-needs/issues"
+discussions = "https://github.com/ansys/scade-almgw-sphinx-needs/discussions"
 documentation = "https://almgw-sphinx-needs.scade.docs.pyansys.com"
-releases = "https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases"
+releases = "https://github.com/ansys/scade-almgw-sphinx-needs/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
 [tool.ruff]
@@ -150,8 +150,8 @@ directory = "doc/changelog.d"
 filename = "doc/source/changelog.rst"
 start_string = ".. towncrier release notes start\n"
 template = "doc/changelog.d/changelog_template.jinja"
-title_format = "`{version} <https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases/tag/v{version}>`_ - {project_date}"
-issue_format = "`#{issue} <https://github.com/ansys-internal/scade-almgw-sphinx-needs/pull/{issue}>`_"
+title_format = "`{version} <https://github.com/ansys/scade-almgw-sphinx-needs/releases/tag/v{version}>`_ - {project_date}"
+issue_format = "`#{issue} <https://github.com/ansys/scade-almgw-sphinx-needs/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
 directory = "added"

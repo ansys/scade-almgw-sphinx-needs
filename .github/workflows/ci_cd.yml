@@ -98,7 +98,7 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: ansys-internal/scade-almgw-sphinx-needs
+          slug: ansys/scade-almgw-sphinx-needs
           files: .cov/xml
 
   doc-build:

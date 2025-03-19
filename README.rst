@@ -19,12 +19,12 @@ Ansys SCADE ALM Gateway connector for sphinx-needs
    :target: https://pypi.org/project/ansys-scade-almgw-sphinx-needs
    :alt: PyPI
 
-.. |codecov| image:: https://codecov.io/gh/ansys-internal/scade-almgw-sphinx-needs/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/ansys-internal/scade-almgw-sphinx-needs
+.. |codecov| image:: https://codecov.io/gh/ansys/scade-almgw-sphinx-needs/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/ansys/scade-almgw-sphinx-needs
    :alt: Codecov
 
-.. |GH-CI| image:: https://github.com/ansys-internal/scade-almgw-sphinx-needs/actions/workflows/ci_cd.yml/badge.svg
-   :target: https://github.com/ansys-internal/scade-almgw-sphinx-needs/actions/workflows/ci_cd.yml
+.. |GH-CI| image:: https://github.com/ansys/scade-almgw-sphinx-needs/actions/workflows/ci_cd.yml/badge.svg
+   :target: https://github.com/ansys/scade-almgw-sphinx-needs/actions/workflows/ci_cd.yml
 
 .. |MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
    :target: https://opensource.org/licenses/MIT
@@ -65,7 +65,7 @@ In the upper right corner of the documentation's title bar, there is an option f
 switching from viewing the documentation for the latest stable release to viewing the
 documentation for the development version or previously released versions.
 
-On the `Ansys SCADE ALM Gateway connector for sphinx-needs Issues <https://github.com/ansys-internal/scade-almgw-sphinx-needs/issues>`_
+On the `Ansys SCADE ALM Gateway connector for sphinx-needs Issues <https://github.com/ansys/scade-almgw-sphinx-needs/issues>`_
 page, you can create issues to report bugs and request new features. On the `Discussions <https://discuss.ansys.com/>`_
 page on the Ansys Developer portal, you can post questions, share ideas, and get community feedback.
 

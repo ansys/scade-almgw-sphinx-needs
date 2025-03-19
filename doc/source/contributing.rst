@@ -19,7 +19,7 @@ source and enhance it.
 
    .. code:: bash
 
-      git clone https://github.com/ansys-internal/scade-almgw-sphinx-needs
+      git clone https://github.com/ansys/scade-almgw-sphinx-needs
 
 #. Access the ``scade-almgw-sphinx-needs`` directory where the repository has been cloned:
 
@@ -184,7 +184,7 @@ the building requirements and then executing the build module:
 Post issues
 ===========
 
-Use the `Ansys SCADE ALM Gateway connector for sphinx-needs Issues <https://github.com/ansys-internal/scade-almgw-sphinx-needs/issues>`_
+Use the `Ansys SCADE ALM Gateway connector for sphinx-needs Issues <https://github.com/ansys/scade-almgw-sphinx-needs/issues>`_
 page to submit questions, report bugs, and request new features. When possible, use
 these templates:
 
@@ -208,4 +208,4 @@ To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@a
 .. _pre-commit: https://pre-commit.com/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
-.. _wheel file: https://github.com/ansys-internal/scade-almgw-sphinx-needs/releases
+.. _wheel file: https://github.com/ansys/scade-almgw-sphinx-needs/releases
