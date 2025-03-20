@@ -61,11 +61,15 @@ name = "ansys.scade.almgw_sphinx_needs"
 
 [project.scripts]
 ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.sphinx_needs:main"
-register_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.register:main"
 setup_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.setup:main"
+# backward compatibility
+register_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.register:main"
+unregister_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.unregister:main"
 
 [project.entry-points."ansys.scade.registry"]
 srg = "ansys.scade.almgw_sphinx_needs:srg"
+register = "ansys.scade.almgw_sphinx_needs.register:register"
+unregister = "ansys.scade.almgw_sphinx_needs.unregister:unregister"
 
 [project.entry-points."ansys.almgw.connector"]
 exe = "ansys.scade.almgw_sphinx_needs:exe"

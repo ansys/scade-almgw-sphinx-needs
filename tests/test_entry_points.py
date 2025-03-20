@@ -36,3 +36,10 @@ def test_exe():
     assert name
     assert path
     assert Path(path).exists()
+
+
+def test_get_srg_name():
+    name = sn.get_srg_name()
+    assert name
+    assert name.startswith('almgw_sphinx_needs2')
+    assert name.endswith('.srg')
