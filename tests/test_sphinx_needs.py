@@ -76,6 +76,7 @@ def _run_sphinx_needs(command: str, path: Path, *args: str) -> subprocess.Comple
         ['Nominal', 0],
         ['NoFiles', 4294967295],
         ['MiscFiles', 0],
+        ['Pendings', 0],
     ],
 )
 def test_import(local_tmpdir, name: str, expected: int):
@@ -86,10 +87,16 @@ def test_import(local_tmpdir, name: str, expected: int):
     path = dst_dir / (name + '.etp')
     dst = dst_dir / 'import.xml'
     status = _run_sphinx_needs('import', path, str(dst))
-    ref = _ref_dir / (name.lower() + '_import.xml')
     assert status.returncode == expected
     if expected == 0:
+        # verify result file
+        ref = _ref_dir / (name.lower() + '_import.xml')
         assert not diff_files(ref, dst)
+        # verify trace file
+        ref = _ref_dir / (name.lower() + '_import.trace')
+        if ref.exists():
+            dst = dst_dir / (name + '.sphinx-needs.trace')
+            assert not diff_files(ref, dst)
 
 
 @pytest.mark.parametrize(

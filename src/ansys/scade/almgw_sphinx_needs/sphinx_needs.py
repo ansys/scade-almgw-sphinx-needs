@@ -115,6 +115,8 @@ class SphinxNeeds(Connector):
 
         links = TraceDocument(project, self.get_trace_file(), self.map_requirements)
         links.read()
+        # write the file to remove pending links to unexisting requirements, if any
+        links.write()
 
         project.write()
 
