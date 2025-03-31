@@ -132,19 +132,20 @@ jobs:
       contents: write
     steps:
 
-      - name: "Download the library artifacts from build-library step"
-        uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.LIBRARY_NAME }}-artifacts
-          path: ${{ env.LIBRARY_NAME }}-artifacts
+      # deactivated until the repo is published
+      # - name: "Download the library artifacts from build-library step"
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: ${{ env.LIBRARY_NAME }}-artifacts
+      #     path: ${{ env.LIBRARY_NAME }}-artifacts
 
-      - name: "Upload artifacts to PyPI using trusted publisher"
-        uses: pypa/gh-action-pypi-publish@v1.12.4
-        with:
-          repository-url: "https://upload.pypi.org/legacy/"
-          print-hash: true
-          packages-dir: ${{ env.LIBRARY_NAME }}-artifacts
-          skip-existing: false
+      # - name: "Upload artifacts to PyPI using trusted publisher"
+      #   uses: pypa/gh-action-pypi-publish@v1.12.4
+      #   with:
+      #     repository-url: "https://upload.pypi.org/legacy/"
+      #     print-hash: true
+      #     packages-dir: ${{ env.LIBRARY_NAME }}-artifacts
+      #     skip-existing: false
 
       - name: "Release to GitHub"
         uses: ansys/actions/release-github@v8
