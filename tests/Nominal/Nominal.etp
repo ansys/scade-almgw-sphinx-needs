@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="91" defaultConfiguration="23">
+<Project id="1" oid_count="92" defaultConfiguration="23">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -319,6 +319,9 @@
 		</Prop>
 		<Prop id="91" name="@SPHINX_NEEDS:EXPORT_DOCUMENT">
 			<value>model.json</value>
+		</Prop>
+		<Prop id="92" name="@ALMGW:DIAGRAMS">
+			<value>true</value>
 		</Prop>
 	</props>
 	<roots>
