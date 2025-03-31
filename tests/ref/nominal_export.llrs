@@ -9,6 +9,7 @@
                         {
                             "almtype": "req",
                             "icon": "$(SCADE)/SCADE LifeCycle/ALM Gateway/reqtifygw/icons/suite/equationSet.png",
+                            "image": "$(ROOT)/tests/tmp/ExportNominal/llr_img/Usefulness_.png",
                             "name": "Usefulness?",
                             "oid": "!ed/91/7A8D/4DD0/6745dacb615b",
                             "pathname": "P::Delay/Delay/Usefulness?/",
@@ -31,6 +32,7 @@
                                 }
                             ],
                             "icon": "$(SCADE)/SCADE LifeCycle/ALM Gateway/reqtifygw/icons/suite/equationSet.png",
+                            "image": "$(ROOT)/tests/tmp/ExportNominal/llr_img/Rather simple.png",
                             "name": "Rather simple",
                             "oid": "!ed/4b/7A8D/4DD0/6745d1e16091",
                             "pathname": "P::Root/Root/Rather simple/",
@@ -46,6 +48,7 @@
                                 }
                             ],
                             "icon": "$(SCADE)/SCADE LifeCycle/ALM Gateway/reqtifygw/icons/suite/equationSet.png",
+                            "image": "$(ROOT)/tests/tmp/ExportNominal/llr_img/Unused neither traced.png",
                             "name": "Unused neither traced",
                             "oid": "!ed/b5/BBF/3518/674831dd44f3",
                             "pathname": "P::Root/Root/Unused neither traced/",
