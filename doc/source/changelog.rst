@@ -9,6 +9,42 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.3.0 <https://github.com/ansys/scade-almgw-sphinx-needs/releases/tag/v0.3.0>`_ - June 25, 2025
+================================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - chore: update CHANGELOG for v0.2.0
+          - `#22 <https://github.com/ansys/scade-almgw-sphinx-needs/pull/22>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - build(deps): Update flit-core requirement from <3.12,>=3.2 to >=3.2,<3.13 in the dependencies group
+          - `#23 <https://github.com/ansys/scade-almgw-sphinx-needs/pull/23>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - ci: Bump ansys/actions from 8 to 9 in the actions group
+          - `#24 <https://github.com/ansys/scade-almgw-sphinx-needs/pull/24>`_
+
+
 `0.2.0 <https://github.com/ansys/scade-almgw-sphinx-needs/releases/tag/v0.2.0>`_ - March 31, 2025
 =================================================================================================
 
