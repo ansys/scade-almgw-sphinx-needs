@@ -7,3 +7,4 @@
 ## Individual Contributors
 
 * [Abdeljelile Addi](https://github.com/aaddi06)
+* [Revathy Venugopal](https://github.com/Revathyvenugopal162)
