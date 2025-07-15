@@ -25,6 +25,7 @@
 from enum import Enum
 import os
 from pathlib import Path
+from typing import List
 
 from scade.model.project.stdproject import Project, get_roots as get_projects
 from scade.tool.suite.gui.commands import Command, Menu
@@ -200,10 +201,9 @@ class Settings(Dialog):
         # alignment for the first line
         y = 7
 
-        projects = get_projects()
+        projects: List[Project] = get_projects()
         # reuse last selected project if any and still exists
         project = self.project if self.project in projects else projects[0]
-        assert isinstance(project, Project)
         # reset current project
         self.project = None
         style = ['dropdownlist', 'sort']
@@ -280,7 +280,7 @@ class Settings(Dialog):
     def on_project_selection(self, cb: ObjectComboBox, index: int):
         """Update current project."""
         project = cb.get_selection()
-        assert isinstance(project, Project)
+        assert isinstance(project, Project)  # nosec B101  # addresses linter
         self.on_set_project(project)
 
     def on_ok(self, *args):
@@ -294,24 +294,23 @@ class Settings(Dialog):
 
     def on_add(self, *args):
         """Prompt the user for a new document."""
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
 
         path = file_open('Requirements Documents (*.json)|*.json|All Files (*.*)|*.*||')
         if path:
-            assert self.lb_import_documents
+            assert self.lb_import_documents is not None  # nosec B101  # addresses linter
             try:
                 document = os.path.relpath(path, Path(self.project.pathname).parent)
             except ValueError:
                 document = path
-            documents = self.lb_import_documents.get_items()
-            assert isinstance(documents, list)
+            documents: List[str] = self.lb_import_documents.get_items()  # type: ignore
             if document not in documents:
                 documents.append(document)
                 self.lb_import_documents.set_items(documents)
 
     def on_remove(self, *args):
         """Remove the selected documents."""
-        assert self.lb_import_documents
+        assert self.lb_import_documents is not None  # nosec B101  # addresses linter
         selected = self.lb_import_documents.get_selection()
         if selected:
             documents = [_ for _ in self.lb_import_documents.get_items() if _ not in selected]
@@ -319,103 +318,103 @@ class Settings(Dialog):
 
     def read_settings(self):
         """Update the dialog with the project's settings."""
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
 
-        assert self.lb_import_documents
+        assert self.lb_import_documents is not None  # nosec B101  # addresses linter
         documents = self.project.get_tool_prop_def(
             sn.TOOL, sn.IMPORT_DOCUMENTS, sn.IMPORT_DOCUMENTS_DEFAULT, None
         )
         self.lb_import_documents.set_items(documents)
 
-        assert self.ed_upstream_type
+        assert self.ed_upstream_type is not None  # nosec B101  # addresses linter
         upstream_type = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.UPSTREAM_TYPE, sn.UPSTREAM_TYPE_DEFAULT, None
         )
         self.ed_upstream_type.set_name(upstream_type)
 
-        assert self.ed_downstream_type
+        assert self.ed_downstream_type is not None  # nosec B101  # addresses linter
         downstream_type = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.DOWNSTREAM_TYPE, sn.DOWNSTREAM_TYPE_DEFAULT, None
         )
         self.ed_downstream_type.set_name(downstream_type)
 
-        assert self.ed_link_type
+        assert self.ed_link_type is not None  # nosec B101  # addresses linter
         link_type = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.LINK_TYPE, sn.LINK_TYPE_DEFAULT, None
         )
         self.ed_link_type.set_name(link_type)
 
-        assert self.ed_version
+        assert self.ed_version is not None  # nosec B101  # addresses linter
         version = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.VERSION, sn.VERSION_DEFAULT, None
         )
         self.ed_version.set_name(version)
 
-        assert self.ed_export_schema
+        assert self.ed_export_schema is not None  # nosec B101  # addresses linter
         export_schema = self.project.get_scalar_tool_prop_def(
             pyamlgw.TOOL, pyamlgw.LLRSCHEMA, pyamlgw.LLRSCHEMA_DEFAULT, None
         )
         self.ed_export_schema.set_name(export_schema)
         self.ed_export_schema.reldir = str(Path(self.project.pathname).parent)
 
-        assert self.ed_export_document
+        assert self.ed_export_document is not None  # nosec B101  # addresses linter
         export_document = self.project.get_scalar_tool_prop_def(
             sn.TOOL, sn.EXPORT_DOCUMENT, sn.EXPORT_DOCUMENT_DEFAULT, None
         )
         self.ed_export_document.set_name(export_document)
         self.ed_export_document.reldir = str(Path(self.project.pathname).parent)
 
-        assert self.cb_graphics
+        assert self.cb_graphics is not None  # nosec B101  # addresses linter
         graphics = self.project.get_bool_tool_prop_def(pyamlgw.TOOL, 'DIAGRAMS', False, None)
         self.cb_graphics.set_check(graphics)
 
     def write_settings(self):
         """Update the project's settings from the dialog."""
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
 
-        assert self.lb_import_documents
+        assert self.lb_import_documents is not None  # nosec B101  # addresses linter
         documents = self.lb_import_documents.get_items()
         self.project.set_tool_prop_def(
             sn.TOOL, sn.IMPORT_DOCUMENTS, documents, sn.IMPORT_DOCUMENTS_DEFAULT, None
         )
 
-        assert self.ed_upstream_type
+        assert self.ed_upstream_type is not None  # nosec B101  # addresses linter
         upstream_type = self.ed_upstream_type.get_name()
         self.project.set_scalar_tool_prop_def(
             sn.TOOL, sn.UPSTREAM_TYPE, upstream_type, sn.UPSTREAM_TYPE_DEFAULT, None
         )
 
-        assert self.ed_downstream_type
+        assert self.ed_downstream_type is not None  # nosec B101  # addresses linter
         downstream_type = self.ed_downstream_type.get_name()
         self.project.set_scalar_tool_prop_def(
             sn.TOOL, sn.DOWNSTREAM_TYPE, downstream_type, sn.DOWNSTREAM_TYPE_DEFAULT, None
         )
 
-        assert self.ed_link_type
+        assert self.ed_link_type is not None  # nosec B101  # addresses linter
         link_type = self.ed_link_type.get_name()
         self.project.set_scalar_tool_prop_def(
             sn.TOOL, sn.LINK_TYPE, link_type, sn.LINK_TYPE_DEFAULT, None
         )
 
-        assert self.ed_version
+        assert self.ed_version is not None  # nosec B101  # addresses linter
         version = self.ed_version.get_name()
         self.project.set_scalar_tool_prop_def(
             sn.TOOL, sn.VERSION, version, sn.VERSION_DEFAULT, None
         )
 
-        assert self.ed_export_schema
+        assert self.ed_export_schema is not None  # nosec B101  # addresses linter
         export_schema = self.ed_export_schema.get_name()
         self.project.set_scalar_tool_prop_def(
             pyamlgw.TOOL, pyamlgw.LLRSCHEMA, export_schema, pyamlgw.LLRSCHEMA_DEFAULT, None
         )
 
-        assert self.ed_export_document
+        assert self.ed_export_document is not None  # nosec B101  # addresses linter
         export_document = self.ed_export_document.get_name()
         self.project.set_scalar_tool_prop_def(
             sn.TOOL, sn.EXPORT_DOCUMENT, export_document, sn.EXPORT_DOCUMENT_DEFAULT, None
         )
 
-        assert self.cb_graphics
+        assert self.cb_graphics is not None  # nosec B101  # addresses linter
         graphics = self.cb_graphics.get_check()
         self.project.set_bool_tool_prop_def(pyamlgw.TOOL, 'DIAGRAMS', graphics, False, None)
 

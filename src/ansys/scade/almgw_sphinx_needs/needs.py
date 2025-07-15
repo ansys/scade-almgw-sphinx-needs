@@ -46,7 +46,6 @@ class Parser:
             if need['type'] != options.upstream_type:
                 continue
 
-            assert id == need['id']
             section_name = need.get('section_name')
             content = need['content']
             # convert paragraph separators obvioumarkers
