@@ -36,7 +36,7 @@ from ansys.scade.almgw_sphinx_needs.trace import TraceDocument
 def export_document(llrs: dict, trace: TraceDocument, options: Options):
     """Export the LLRs to sphinx-needs."""
     path = options.export_document
-    assert path is not None  # nosec  # addresses linter
+    assert path is not None  # nosec B101  # addresses linter
     if path.suffix.lower() == '.json':
         _export_to_json(llrs, trace, options)
     elif path.suffix.lower() == '.rst':
@@ -105,7 +105,7 @@ def _export_to_json(llrs: dict, trace: TraceDocument, options: Options):
         elif element['almtype'] == 'req':
             export_req(context, element)
 
-    assert options.export_document  # nosec  # addresses linter
+    assert options.export_document  # nosec B101  # addresses linter
     target_dir = options.export_document.parent
     images = target_dir / '_static'
     images.mkdir(exist_ok=True)
