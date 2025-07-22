@@ -50,12 +50,12 @@ class SphinxNeeds(Connector):
 
     def get_reqs_file(self) -> Path:
         """Return the path of the temporary file containing the requirements and traceability."""
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
         return Path(self.project.pathname).with_suffix('.' + self.id + '.reqs')
 
     def get_trace_file(self) -> Path:
         """Return the path of the file containing the traceability."""
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
         return Path(self.project.pathname).with_suffix('.' + self.id + '.trace')
 
     def on_settings(self, pid: int) -> int:
@@ -102,7 +102,7 @@ class SphinxNeeds(Connector):
               and requirement tree shall be kept
             * 0: requirements and traceability links shall be correctly imported
         """
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
         options = Options()
         options.load(self.project)
         if not options.import_documents:
@@ -175,7 +175,7 @@ class SphinxNeeds(Connector):
             # save the updated cache
             project.write()
 
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
         options = Options()
         options.load(self.project)
         if not options.export_document:
@@ -192,7 +192,6 @@ class SphinxNeeds(Connector):
 
         # generation the rst document
         llrs = json.loads(model.read_text())
-        assert llrs
         export_document(llrs, trace, options)
         print('requirements exported.')
         return 1
@@ -214,7 +213,7 @@ class SphinxNeeds(Connector):
             * 0: if ‘Management Requirements’ UI of ALM tool is successfully launched
             * 1: to clean requirement list on the SCADE IDE ‘Requirements’ window
         """
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
         options = Options()
         options.load(self.project)
         if not options.import_documents:
@@ -242,7 +241,7 @@ class SphinxNeeds(Connector):
             * -1: if an error occurs while executing the command
             * 0: if the command is successfully executed
         """
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
         options = Options()
         options.load(self.project)
 
@@ -275,7 +274,7 @@ class SphinxNeeds(Connector):
 
     def read_requirements(self, project: ReqProject, options: Options):
         """Read all the requirements from the documents."""
-        assert self.project
+        assert self.project is not None  # nosec B101  # addresses linter
 
         self.map_requirements = {}
 
