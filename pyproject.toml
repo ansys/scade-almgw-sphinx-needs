@@ -34,10 +34,9 @@ build = [
     "twine==6.2.0"
 ]
 tests = [
-    # 8.0.2 at most: https://github.com/microsoft/PTVS/issues/7853
-    "pytest >= 8.3.4; python_version >= '3.8'",
+    "pytest == 8.3.4; python_version >= '3.8'",
     "pytest <= 7.4.4; python_version < '3.8'",
-    "pytest-cov >= 6.0.0; python_version >= '3.8'",
+    "pytest-cov == 7.0.0; python_version >= '3.8'",
     "pytest-cov <= 4.1.0; python_version < '3.8'",
     # required for SCADE Display API
     "pyparsing",
@@ -119,6 +118,8 @@ convention = "numpy"
 
 [tool.coverage.run]
 source = ["ansys.scade.almgw_sphinx_needs"]
+# cf. https://pytest-cov.readthedocs.io/en/latest/subprocess-support.html
+patch = ["subprocess"]
 
 [tool.coverage.report]
 show_missing = true
