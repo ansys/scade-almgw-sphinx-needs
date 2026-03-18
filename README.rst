@@ -50,7 +50,8 @@ The ``ansys-scade-almgw-sphinx-needs`` package supports only the versions of Pyt
 Ansys SCADE, starting from 2021 R2:
 
 * 2021 R2 through 2023 R1: Python 3.7
-* 2023 R2 and later: Python 3.10
+* 2023 R2 through 2025 R2: Python 3.10
+* 2026 R1 and later: Python 3.12
 
 Ansys SCADE ALM Gateway connector for sphinx-needs has two installation modes: user and developer. To install for use,
 see `Getting started <https://almgw-sphinx-needs.scade.docs.pyansys.com/version/stable/getting-started/index.html>`_.
