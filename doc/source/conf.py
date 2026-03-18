@@ -77,11 +77,7 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# TODO: remove ignore links after public release
 linkcheck_ignore = [
-    'https://github.com/ansys/scade-almgw-sphinx-needs',
-    'https://github.com/ansys/scade-almgw-sphinx-needs/actions/workflows/ci_cd.yml',
-    'https://pypi.org/project/ansys-scade-almgw-sphinx-needs',
     # The link below takes a long time to check
     'https://www.ansys.com/products/embedded-software/ansys-scade-suite',
     'https://www.ansys.com/*',
@@ -93,16 +89,12 @@ if switcher_version != 'dev':
         f'https://github.com/ansys/scade-almgw-sphinx-needs/releases/tag/v{__version__}'
     )
 
-jinja_contexts = {
-    'assets_versions': {'version': switcher_version},
-}
-
 
 def zip_example_folder(app: Sphinx):
     """Zip a specific folder and place it in the Sphinx output directory."""
     root_dir = pathlib.Path(app.srcdir).parent.parent
     examples_dir = root_dir / 'examples'
-    zip_output_path = pathlib.Path(app.outdir) / '_static' / 'examples.zip'
+    zip_output_path = pathlib.Path(app.srcdir) / '_download' / 'examples.zip'
 
     if not examples_dir.exists():
         logging.error(f"Folder '{examples_dir}' does not exist.")
