@@ -23,10 +23,12 @@
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 
 import pytest
 
 import ansys.scade.almgw_sphinx_needs as sn
+from ansys.scade.apitools.info import get_scade_version
 from tests.conftest import diff_files
 
 _root_dir = Path(__file__).parent.parent
@@ -38,16 +40,32 @@ _res_dir = _test_dir / 'res'
 def _run_setup(*args) -> subprocess.CompletedProcess:
     """Run the connector in a subprocess."""
 
-    # get the location of 'Scripts'
-    _, exe = sn.exe()
-    cmd = [str(Path(exe).with_name('setup_ansys_scade_almgw_sphinx_needs.exe'))]
+    if get_scade_version() <= 231:
+        # execution of setup_ansys_scade_almgw_sphinx_needs.exe fails
+        cmd = [sys.executable, '-m', 'ansys.scade.almgw_sphinx_needs.setup']
+    else:
+        # get the location of 'Scripts'
+        _, exe = sn.exe()
+        cmd = [str(Path(exe).with_name('setup_ansys_scade_almgw_sphinx_needs.exe'))]
     cmd.extend(args)
     print(cmd)
-    status = subprocess.run(cmd, capture_output=True)
+    status = subprocess.run(cmd, capture_output=True, text=True)
     if status.stderr:
-        print(status.stderr.decode('utf-8').strip('\n'))
-        assert False
-    out = status.stdout.decode('utf-8').strip('\n')
+        text = status.stderr.strip('\n')
+        print(text, file=sys.stderr)
+        if get_scade_version() <= 231:
+            # filter coverage warnings from pytest-cov
+            text = '\n'.join(
+                [
+                    _
+                    for _ in text.split('\n')
+                    if 'CoverageWarning' not in _ and 'real_section, unknown, filename' not in _
+                ]
+            )
+        else:
+            text = status.stderr
+        assert not text
+    out = status.stdout.strip('\n')
     print(out)
     return status
 
