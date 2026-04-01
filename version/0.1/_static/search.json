@@ -1,0 +1,240 @@
+[
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#getting-started",
+        "title": "Getting started",
+        "section": "Getting started",
+        "text": "To use Ansys SCADE ALM Gateway connector for sphinx-needs, you must have a valid license for Ansys SCADE.\nFor information on getting a licensed copy, see the\nAnsys SCADE Suite\npage on the Ansys website.\nGetting started"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#requirements",
+        "title": "Getting started > Requirements",
+        "section": "Requirements",
+        "text": "The ansys-scade-almgw-sphinx-needs package supports only the versions of Python delivered with\nAnsys SCADE, starting from 2021 R2:\n2021 R2 to 2023 R1: Python 3.7\n2023 R2 and later: Python 3.10\nRequirements\nansys-scade-almgw-sphinx-needs"
+    },
+    {
+        "objectID": "getting-started/index",
+        "href": "getting-started/index.html#install-in-user-mode",
+        "title": "Getting started > Install in user mode",
+        "section": "Install in user mode",
+        "text": "The following steps are for installing Ansys SCADE ALM Gateway connector for sphinx-needs in user mode. If you want to\ncontribute to Ansys SCADE ALM Gateway connector for sphinx-needs,\nsee contribute_scade_sphinx_needs for installing in developer mode.\nBefore installing Ansys SCADE ALM Gateway connector for sphinx-needs in user mode, run this command to ensure that\nyou have the latest version of pip:\nInstall Ansys SCADE ALM Gateway connector for sphinx-needs with this command:\nFor Ansys SCADE releases 2024 R1 and below, complete the installation with\nthis command:\nThis additional step is not required when installing the package with\nAnsys SCADE Extension Manager.\nFor Ansys SCADE 2024 R2 and below, complete the installation as follows:\nCopy ansys/scade/almgw_sphinx_needs/almgw_sphinx_needs.properties to the\nSCADE LifeCycle/ALM Gateway/external directory of the SCADE 2024 R2.\nFor example: C:\\Program Files\\ANSYS Inc\\v242\\SCADE\\SCADE LifeCycle\\ALM Gateway\\external.\nEdit the copy of almgw_sphinx_needs.properties to replace %PYTHON_DIR% by the Python’s\ndirectory selected for the package’s installation, to access ansys_scade_almgw_sphinx_needs.exe.\nInstall in user mode\nansys/scade/almgw_sphinx_needs/almgw_sphinx_needs.properties\nSCADE LifeCycle/ALM Gateway/external\nC:\\Program Files\\ANSYS Inc\\v242\\SCADE\\SCADE LifeCycle\\ALM Gateway\\external\nalmgw_sphinx_needs.properties\n%PYTHON_DIR%\nansys_scade_almgw_sphinx_needs.exe"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#user-guide",
+        "title": "User Guide",
+        "section": "User Guide",
+        "text": "User Guide"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#workflow",
+        "title": "User Guide > Workflow",
+        "section": "Workflow",
+        "text": "The connector imports the requirements from the needs file produced by the build process.\nRefer to needs_build_json for details.\nThe connector exports the SCADE needs to a file (JSON) that can be imported with\nthe directive needimport.\nIt provides the following built-in fields:\nid: OID of the need\ntitle: name of the need\ntype: downstream type specified in the settings\nIt also provides the following extra options that must be declared\nin the build configuration (conf.py):\nimage: path of the image file otherwise <null>\nscade_type: kind of the need: EquationSet, State, Record, etc.\nscade_path: path of the need.\nscade_url: URL to locate the need in the SCADE IDE.\nscade_icon: icon associated to the need.\nThese options can be used in custom layouts or templates.\nWorkflow\nid\ntitle\ntype\nconf.py\nimage\n<null>\nscade_type\nEquationSet\nState\nRecord\nscade_path\nscade_url\nscade_icon"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#configuration",
+        "title": "User Guide > Configuration",
+        "section": "Configuration",
+        "text": "The connector requires a minimal build configuration customization, to declare the types and extra options.\nExample of sphinx-needs configuration (conf.py):\nExample of template (llr.need):\nYou can import the SCADE needs using the custom scade-suite layout\nand llr template to render needs as follows:\nConfiguration\nconf.py\nllr.need\nscade-suite\nllr"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#declaration",
+        "title": "User Guide > Declaration",
+        "section": "Declaration",
+        "text": "Use the command Project/ALM Gateway/Settings... once\nto select the connector ALMGW Connector for sphinx-needs.\nOnce the connector is selected, this command does not operate anymore.\nRefer to the next section for details on settings management.\nIf the project is already connected to an ALM tool, you have first to delete this connection\nby deleting the ALM Gateway project file (ALMGP) in the project’s directory.\nDeclaration\nProject/ALM Gateway/Settings...\nALMGW Connector for sphinx-needs"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#settings",
+        "title": "User Guide > Settings",
+        "section": "Settings",
+        "text": "Settings"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#using-the-graphical-user-interface",
+        "title": "User Guide > Using the Graphical User Interface",
+        "section": "Using the Graphical User Interface",
+        "text": "This mode applies only to projects that can be loaded with SCADE Studio.\nSCADE Display projects must be setup using the command line interface,\nas explained in the next section.\nUse the new command Project/ALM Gateway/sphinx-needs Settings... to:\nSelect the requirements documents for each loaded project.\nSelect the type names for needs and links.\nSpecify an optional LLR export schema to produce the SCADE needs file.\nRefer to Traceable Elements Export Schema for details.\nSpecify the path of the SCADE needs file to export.\nUsing the Graphical User Interface\nProject/ALM Gateway/sphinx-needs Settings..."
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#using-the-command-line-interface",
+        "title": "User Guide > Using the Command Line Interface",
+        "section": "Using the Command Line Interface",
+        "text": "The command line tool python setup_ansys_scade_almgw_sphinx_needs.exe allows to setup\nthe project. It is located in the Scripts folder of the Python installation directory.\nFor example:\nUsing the Command Line Interface\nsetup_ansys_scade_almgw_sphinx_needs.exe\nScripts"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#files",
+        "title": "User Guide > Files",
+        "section": "Files",
+        "text": "Ansys SCADE ALM Gateway connector for sphinx-needs produces several files in the project’s directory.\nThe <project.sphinx-needs.trace> file stores the traceability links\nand must be added to the configuration management system.\nThe other files are present for logging or debug purpose only:\n<project.sphinx-needs.llrs>: Temporary file for exporting the SCADE needs.\n<project.sphinx-needs.reqs>: Copy of exchange file for importing the traceability.\n<links.json>: Copy of exchange file for exporting the traceability.\nFiles\n<project.sphinx-needs.trace>\n<project.sphinx-needs.llrs>\n<project.sphinx-needs.reqs>\n<links.json>"
+    },
+    {
+        "objectID": "user-guide/index",
+        "href": "user-guide/index.html#limitations",
+        "title": "User Guide > Limitations",
+        "section": "Limitations",
+        "text": "The connector does not export diagrams and equation sets.\nLimitations"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#ansys-scade-alm-gateway-connector-for-sphinx-needs",
+        "title": "Ansys SCADE ALM Gateway connector for sphinx-needs",
+        "section": "Ansys SCADE ALM Gateway connector for sphinx-needs",
+        "text": "Learn how to install and use Ansys SCADE ALM Gateway connector for sphinx-needs.\nLearn how to use Ansys SCADE ALM Gateway connector for sphinx-needs.\nLearn how to contribute to Ansys SCADE ALM Gateway connector for sphinx-needs.\nView the changelog for Ansys SCADE ALM Gateway connector for sphinx-needs.\nAnsys SCADE ALM Gateway connector for sphinx-needs"
+    },
+    {
+        "objectID": "index",
+        "href": "index.html#indices-and-tables",
+        "title": "Ansys SCADE ALM Gateway connector for sphinx-needs > Indices and tables",
+        "section": "Indices and tables",
+        "text": "genindex\nsearch\nIndices and tables"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#contribute",
+        "title": "Contribute",
+        "section": "Contribute",
+        "text": "Overall guidance on contributing to a PyAnsys library appears in\nContributing\nin the PyAnsys developer’s guide. Ensure that you are thoroughly familiar\nwith this guide before attempting to contribute to Ansys SCADE ALM Gateway connector for sphinx-needs.\nThe following contribution information is specific to Ansys SCADE ALM Gateway connector for sphinx-needs.\nContribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#install-in-developer-mode",
+        "title": "Contribute > Install in developer mode",
+        "section": "Install in developer mode",
+        "text": "Installing Ansys SCADE ALM Gateway connector for sphinx-needs in developer mode allows you to modify the\nsource and enhance it.\nClone the ansys-scade-almgw-sphinx-needs repository:\nAccess the scade-almgw-sphinx-needs directory where the repository has been cloned:\nCreate a clean Python 3.10 environment and activate it:\nYou should use the interpreter delivered with Ansys SCADE. For example,\nC:\\Program Files\\ANSYS Inc\\v251\\SCADE\\contrib\\Python310\\python.exe.\nMake sure that you have the latest required build system, documentation, testing,\nand CI tools:\nInstall the project in editable mode:\nUse tox to verify your development installation:\nInstall in developer mode\nansys-scade-almgw-sphinx-needs\nscade-almgw-sphinx-needs\nC:\\Program Files\\ANSYS Inc\\v251\\SCADE\\contrib\\Python310\\python.exe"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#test",
+        "title": "Contribute > Test",
+        "section": "Test",
+        "text": "Ansys SCADE ALM Gateway connector for sphinx-needs uses tox for testing. This tool allows you to\nautomate common development tasks (similar to Makefile), but it is oriented\ntowards Python development.\nTest\nMakefile"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-tox",
+        "title": "Contribute > Use tox",
+        "section": "Use tox",
+        "text": "While Makefile has rules, tox has environments. In fact, tox creates its\nown virtual environment so that anything being tested is isolated from the project\nto guarantee the project’s integrity.\nThe following tox commands are provided:\ntox -e style: Checks for coding style quality.\ntox -e tests: Checks for unit tests.\ntox -e tests-coverage: Checks for unit testing and code coverage.\ntox -e doc-html: Builds the HTML documentation.\ntox -e doc-links: Checks for broken links in the documentation.\nUse tox\ntox\nMakefile\ntox\ntox\ntox\ntox -e style\ntox -e tests\ntox -e tests-coverage\ntox -e doc\ntox -e doc-html\ntox -e doc-links"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-raw-testing",
+        "title": "Contribute > Use raw testing",
+        "section": "Use raw testing",
+        "text": "If required, from the command line, you can call style commands like\nblack, isort, and flake8. You can also call unit testing commands like pytest.\nHowever, running these commands does not guarantee that your project is being tested in an\nisolated environment, which is the reason why tools like tox exist.\nUse raw testing\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#use-pre-commit",
+        "title": "Contribute > Use pre-commit",
+        "section": "Use pre-commit",
+        "text": "Ansys SCADE ALM Gateway connector for sphinx-needs follows the PEP8 standard as outlined in\nPEP 8 in\nthe PyAnsys developer’s guide and implements style checking using\npre-commit.\nTo ensure your code meets minimum code styling standards, run the following commands:\nYou can also install this as a pre-commit hook by running this command:\nThis way, it’s not possible for you to push code that fails the style checks:\nUse pre-commit\npre-commit"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#build-documentation",
+        "title": "Contribute > Build documentation",
+        "section": "Build documentation",
+        "text": "For building documentation, you can run the usual rules provided in the\nSphinx make file. Here are some examples:\nHowever, the recommended way of checking documentation integrity is to use\ntox:\nBuild documentation\nmake\ntox"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#distribute",
+        "title": "Contribute > Distribute",
+        "section": "Distribute",
+        "text": "If you would like to create either source or wheel files, start by installing\nthe building requirements and then executing the build module:\nDistribute"
+    },
+    {
+        "objectID": "contributing",
+        "href": "contributing.html#post-issues",
+        "title": "Contribute > Post issues",
+        "section": "Post issues",
+        "text": "Use the Ansys SCADE ALM Gateway connector for sphinx-needs Issues\npage to submit questions, report bugs, and request new features. When possible, use\nthese templates:\nBug, problem, error: For filing a bug report\nDocumentation error: For requesting modifications to the documentation\nAdding an example: For proposing a new example\nNew feature: For requesting enhancements to the code\nIf your issue does not fit into one of these template categories, click\nthe link for opening a blank issue.\nTo reach the project support team, email pyansys.core@ansys.com.\nPost issues"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#release-notes",
+        "title": "Release notes",
+        "section": "Release notes",
+        "text": "This document contains the release notes for the project.\nRelease notes"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#013---2025-02-19",
+        "title": "Release notes > 0.1.3 - 2025-02-19",
+        "section": "0.1.3 - 2025-02-19",
+        "text": "0.1.3 - 2025-02-19"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#added",
+        "title": "Release notes > Added",
+        "section": "Added",
+        "text": "feat: Export all attributes to allow the usage of templates #9\nAdded"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#012---2025-02-18",
+        "title": "Release notes > 0.1.2 - 2025-02-18",
+        "section": "0.1.2 - 2025-02-18",
+        "text": "0.1.2 - 2025-02-18"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#documentation",
+        "title": "Release notes > Documentation",
+        "section": "Documentation",
+        "text": "chore: Do not use autosectionlabel to avoid errors in change logs #7\nDocumentation"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#011---2025-02-18",
+        "title": "Release notes > 0.1.1 - 2025-02-18",
+        "section": "0.1.1 - 2025-02-18",
+        "text": "0.1.1 - 2025-02-18"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#added",
+        "title": "Release notes > Added",
+        "section": "Added",
+        "text": "feat: Add an option to export graphics #5\nAdded"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#010---2025-02-18",
+        "title": "Release notes > 0.1.0 - 2025-02-18",
+        "section": "0.1.0 - 2025-02-18",
+        "text": "0.1.0 - 2025-02-18"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#added",
+        "title": "Release notes > Added",
+        "section": "Added",
+        "text": "feat: Initial release #1\nAdded"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#dependencies",
+        "title": "Release notes > Dependencies",
+        "section": "Dependencies",
+        "text": "build(deps): Bump the dependencies group with 4 updates #2\nDependencies"
+    },
+    {
+        "objectID": "changelog",
+        "href": "changelog.html#maintenance",
+        "title": "Release notes > Maintenance",
+        "section": "Maintenance",
+        "text": "ci: Reactivate vale #3\nMaintenance"
+    }
+]
