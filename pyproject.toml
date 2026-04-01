@@ -30,13 +30,13 @@ keywords=["Scade", "ALM Gateway", "sphinx", "needs"]
 
 [project.optional-dependencies]
 build = [
-    "build==1.4.0",
+    "build==1.4.1",
     "twine==6.2.0"
 ]
 tests = [
     "pytest >= 9.0.1; python_version >= '3.8'",
     "pytest <= 7.4.4; python_version < '3.8'",
-    "pytest-cov == 7.0.0; python_version >= '3.8'",
+    "pytest-cov == 7.1.0; python_version >= '3.8'",
     "pytest-cov <= 4.1.0; python_version < '3.8'",
     # required for SCADE Display API
     "pyparsing",
@@ -48,7 +48,7 @@ doc = [
     "sphinx==8.1.3; python_version <= '3.10'",
     "sphinx-autodoc-typehints==3.6.2; python_version >= '3.12'",
     "sphinx-autodoc-typehints==3.0.1; python_version <= '3.10'",
-    "sphinxcontrib-globalsubs==1.0.0; python_version >= '3.12'",
+    "sphinxcontrib-globalsubs==1.1.0; python_version >= '3.12'",
     "sphinxcontrib-globalsubs==0.1.2; python_version <= '3.10'",
     "sphinxcontrib-httpdomain==1.8.1",
     "sphinx-copybutton==0.5.2",
