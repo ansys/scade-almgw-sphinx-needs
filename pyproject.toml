@@ -1,5 +1,5 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
+requires = ["flit_core >=3.12,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
@@ -57,9 +57,6 @@ doc = [
     "sphinx-jinja==2.0.2",
 ]
 
-[tool.flit.module]
-name = "ansys.scade.almgw_sphinx_needs"
-
 [project.scripts]
 ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.sphinx_needs:main"
 setup_ansys_scade_almgw_sphinx_needs = "ansys.scade.almgw_sphinx_needs.setup:main"
@@ -83,9 +80,16 @@ documentation = "https://almgw-sphinx-needs.scade.docs.pyansys.com"
 releases = "https://github.com/ansys/scade-almgw-sphinx-needs/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
+[tool.flit.module]
+name = "ansys.scade.almgw_sphinx_needs"
+
 [tool.ruff]
 line-length = 100
 fix = true
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
 
 [tool.ruff.lint]
 select = [
@@ -98,14 +102,9 @@ select = [
     "TD",   # flake8-todos, https://docs.astral.sh/ruff/rules/#flake8-todos-td
 ]
 ignore = [
-    # "E501",  # Line too long. Ignoring this so "ruff.formatter" manages line length.
     "TD002", # Missing author in TODOs comment
     "TD003", # Missing issue in TODOs comment
 ]
-
-[tool.ruff.format]
-quote-style = "single"
-indent-style = "space"
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
@@ -125,6 +124,9 @@ patch = ["subprocess"]
 
 [tool.coverage.report]
 show_missing = true
+exclude_also = [
+    "@(abc\\.)?abstractmethod",
+    ]
 
 [tool.pytest.ini_options]
 testpaths = "tests"
@@ -161,13 +163,13 @@ title_format = "`{version} <https://github.com/ansys/scade-almgw-sphinx-needs/re
 issue_format = "`#{issue} <https://github.com/ansys/scade-almgw-sphinx-needs/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
-directory = "added"
-name = "Added"
+directory = "breaking"
+name = "Breaking"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "changed"
-name = "Changed"
+directory = "added"
+name = "Added"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -178,11 +180,6 @@ showcontent = true
 [[tool.towncrier.type]]
 directory = "documentation"
 name = "Documentation"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "test"
-name = "Test"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -199,3 +196,17 @@ showcontent = true
 directory = "miscellaneous"
 name = "Miscellaneous"
 showcontent = true
+
+[[tool.towncrier.type]]
+directory = "test"
+name = "Test"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "changed"
+name = "Changed"
+showcontent = true
+
+[tool.codespell]
+ignore-words-list = ["synopsys"]
+
