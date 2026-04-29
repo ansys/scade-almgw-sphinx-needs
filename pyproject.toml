@@ -72,7 +72,6 @@ unregister = "ansys.scade.almgw_sphinx_needs.unregister:unregister"
 [project.entry-points."ansys.almgw.connector"]
 exe = "ansys.scade.almgw_sphinx_needs:exe"
 
-
 [project.urls]
 source = "https://github.com/ansys/scade-almgw-sphinx-needs"
 issues = "https://github.com/ansys/scade-almgw-sphinx-needs/issues"
@@ -81,10 +80,8 @@ documentation = "https://almgw-sphinx-needs.scade.docs.pyansys.com"
 releases = "https://github.com/ansys/scade-almgw-sphinx-needs/releases"
 homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
-
 [tool.flit.module]
 name = "ansys.scade.almgw_sphinx_needs"
-
 
 [tool.ruff]
 line-length = 100
@@ -120,7 +117,6 @@ convention = "numpy"
 [tool.ruff.lint.per-file-ignores]
 "tests/*.py" = ["D",]
 
-
 [tool.coverage.run]
 source = ["ansys.scade.almgw_sphinx_needs"]
 # cf. https://pytest-cov.readthedocs.io/en/latest/subprocess-support.html
@@ -132,11 +128,9 @@ exclude_also = [
     "@(abc\\.)?abstractmethod",
     ]
 
-
 [tool.pytest.ini_options]
 testpaths = "tests"
 addopts = "-ra --cov=ansys.scade.almgw_sphinx_needs --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
-
 
 [tool.numpydoc_validation]
 checks = [
@@ -169,13 +163,13 @@ title_format = "`{version} <https://github.com/ansys/scade-almgw-sphinx-needs/re
 issue_format = "`#{issue} <https://github.com/ansys/scade-almgw-sphinx-needs/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
-directory = "added"
-name = "Added"
+directory = "breaking"
+name = "Breaking"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "changed"
-name = "Changed"
+directory = "added"
+name = "Added"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -186,11 +180,6 @@ showcontent = true
 [[tool.towncrier.type]]
 directory = "documentation"
 name = "Documentation"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "test"
-name = "Test"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -206,6 +195,16 @@ showcontent = true
 [[tool.towncrier.type]]
 directory = "miscellaneous"
 name = "Miscellaneous"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "test"
+name = "Test"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "changed"
+name = "Changed"
 showcontent = true
 
 [tool.codespell]
