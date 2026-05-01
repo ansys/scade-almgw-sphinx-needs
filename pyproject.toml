@@ -30,7 +30,7 @@ keywords=["Scade", "ALM Gateway", "sphinx", "needs"]
 
 [project.optional-dependencies]
 build = [
-    "build==1.4.1",
+    "build==1.4.4",
     "twine==6.2.0"
 ]
 tests = [
@@ -161,13 +161,13 @@ title_format = "`{version} <https://github.com/ansys/scade-almgw-sphinx-needs/re
 issue_format = "`#{issue} <https://github.com/ansys/scade-almgw-sphinx-needs/pull/{issue}>`_"
 
 [[tool.towncrier.type]]
-directory = "added"
-name = "Added"
+directory = "breaking"
+name = "Breaking"
 showcontent = true
 
 [[tool.towncrier.type]]
-directory = "changed"
-name = "Changed"
+directory = "added"
+name = "Added"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -178,11 +178,6 @@ showcontent = true
 [[tool.towncrier.type]]
 directory = "documentation"
 name = "Documentation"
-showcontent = true
-
-[[tool.towncrier.type]]
-directory = "test"
-name = "Test"
 showcontent = true
 
 [[tool.towncrier.type]]
@@ -199,3 +194,14 @@ showcontent = true
 directory = "miscellaneous"
 name = "Miscellaneous"
 showcontent = true
+
+[[tool.towncrier.type]]
+directory = "test"
+name = "Test"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "changed"
+name = "Changed"
+showcontent = true
+
