@@ -3,7 +3,7 @@
   <documents>
     <Document identifier="$(ROOT)/tests/Documents/_build/html/needs.json" text="Needs">
       <children>
-        <Section identifier="" text="Needs" description="">
+        <Section identifier="Needs" text="Needs" description="">
           <children>
             <Requirement identifier="REQ_01" text="[REQ_01] High Level Requirement" description="Bla."/>
             <Requirement identifier="REQ_03" text="[REQ_03] Two paragraphs" description="Bla paragraph 1.&#10;Bla paragraph 2."/>
